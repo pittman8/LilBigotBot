@@ -1,1 +1,1 @@
-# lilbigotbot
+# LilBigotBot
