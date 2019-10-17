@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ResourcesComponent } from './resources/resources.component';
 import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { AnalyticsComponent } from './analytics/analytics.component';
     AnalyticsComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

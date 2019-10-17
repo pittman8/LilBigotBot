@@ -1,9 +1,15 @@
 <div style="text-align:center">
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/search">Search</a>
+    <a routerLink="/analytics">Analytics</a>
+    <a routerLink="/resources">Resources</a>
+  </nav>
+
   <h1>
     Welcome to {{ title }}!
   </h1>
-  <app-search></app-search>
-  <app-resources></app-resources>
-<app-analytics></app-analytics>
+  
+  <router-outlet></router-outlet>
  
 </div>
