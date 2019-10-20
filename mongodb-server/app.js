@@ -4,7 +4,8 @@ const app = express();
 
 // db instance connection
 require("./config/db");
-
+//require("./callTwitter");
+require("./search");
 const app = express();
 
 const port = process.env.PORT || 80;
@@ -13,6 +14,18 @@ app.use(bodyParser.json());
 
 
 // API ENDPOINTS
+
+
+/* const options = {
+  host: 'https://api.twitter.com',
+  port: 443,
+  path: '/some/path',
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json'
+  }
+}; */
+
 
 app
   .route("/tasks")
