@@ -10,7 +10,7 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
 
   startSearch() {
-    let newResult = 'Button was clicked';
+    let newResult = 'Searched for ' + this.input_search ;
 
     //contact server to search 
 
