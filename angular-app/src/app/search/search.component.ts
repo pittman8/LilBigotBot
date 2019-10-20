@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { SearchService } from '../search.service';
+
+import { Router } from '@angular/router';   // ###### to allow me to jum to another page
+// or back to myself to get a refresh
+
 
 @Component({
   selector: 'app-search',
@@ -10,13 +15,13 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
 
   startSearch() {
-    let newResult = 'Searched for ' + this.input_search ;
+    let newResult = this.myTaskService.sayHello();
 
     //contact server to search 
 
     this.result = newResult;
   }
-  constructor() { }
+  constructor(private myTaskService: SearchService, private router: Router) { }
   ngOnInit() {
   }
 
