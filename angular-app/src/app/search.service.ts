@@ -10,14 +10,20 @@ export interface Search {   //Not sure what this does
 })
 
 export class SearchService {
-
+  config: Search;
   constructor(private http: HttpClient) {}
   
   sayHello() {
     let result = 'clicked';
   
     let test = this.http.get('http://localhost:80/hello');
-    console.log(test);
+
+    
+    let out = test.subscribe((data: Search) => this.config = {
+      name: data['name']});
+  
+
+    console.log(out);
 
     return result;
     //return  this.http.get<Task[]>('http://localhost:3000/tasks');
