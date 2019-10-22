@@ -15,11 +15,15 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
 
   startSearch() {
-    let newResult = this.myTaskService.sayHello();
+	//let newResult = ({value: 'failed'});
+    //newResult.value = this.myTaskService.sayHello();
+    console.log('startSearch()');
+    console.log('recieved: ' + this.myTaskService.sayHello());
+	console.log('end startSearch()');
 
-    //contact server to search 
-
-    this.result = newResult;
+	//newResult.value = returnResult.value;
+	//console.log('recieved: ' + newResult.value);
+	//this.result = newResult.value;
   }
   constructor(private myTaskService: SearchService, private router: Router) { }
   ngOnInit() {
