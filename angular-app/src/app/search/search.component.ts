@@ -5,6 +5,8 @@ import { Router } from '@angular/router';   // ###### to allow me to jum to anot
 // or back to myself to get a refresh
 
 
+import { Hello } from '../Hello';
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -13,13 +15,13 @@ import { Router } from '@angular/router';   // ###### to allow me to jum to anot
 export class SearchComponent implements OnInit {
   input_search = 'example_user';
   result = 'Output holder';
+  newHello: Hello;
 
-  startSearch() {
-	//let newResult = ({value: 'failed'});
-    //newResult.value = this.myTaskService.sayHello();
+  startSearch(): void {
     console.log('startSearch()');
-    console.log('recieved: ' + this.myTaskService.sayHello());
-	console.log('end startSearch()');
+    this.newHello.value = this.myTaskService.sayHello().value;
+    console.log(this.newHello);
+	  console.log('end startSearch()');
 
 	//newResult.value = returnResult.value;
 	//console.log('recieved: ' + newResult.value);
@@ -27,6 +29,7 @@ export class SearchComponent implements OnInit {
   }
   constructor(private myTaskService: SearchService, private router: Router) { }
   ngOnInit() {
+    this.newHello.value = "";
   }
 
 }
