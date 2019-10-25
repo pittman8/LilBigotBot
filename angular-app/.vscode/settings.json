@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.deploySubpath": "",
+    "appService.defaultWebAppToDeploy": "/subscriptions/c9c01be9-9e95-48b6-af53-15d8237fa4b2/resourceGroups/ISIT422Fall2019ResGrp/providers/Microsoft.Web/sites/ISIT422ClientFall2019"
+}
