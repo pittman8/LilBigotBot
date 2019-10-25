@@ -1,11 +1,10 @@
 const express = require("express");
 const bodyParser = require("body-parser");
-const app = express();
-
+const taskController = require("./controllers/TaskController");
 // db instance connection
-require("./config/db");
-//require("./callTwitter");
-require("./search");
+require("./db");
+require("./callTwitter");
+//require("./search");
 const app = express();
 
 const port = process.env.PORT || 80;
