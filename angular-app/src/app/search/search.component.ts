@@ -12,15 +12,17 @@ import { Hello } from '../Hello';
   templateUrl: './search.component.html',
   styleUrls: ['./search.component.scss']
 })
+
 export class SearchComponent implements OnInit {
   input_search = 'example_user';
   result = 'Output holder';
-  newHello: Hello;
+  newHello: Hello = new Hello();
 
   startSearch(): void {
     console.log('startSearch()');
-    this.newHello.value = this.myTaskService.sayHello().value;
-    console.log(this.newHello);
+    let thisHello = this.myTaskService.sayHello();
+    //this.newHello.value = thisHello.value;
+    console.log(thisHello);
 	  console.log('end startSearch()');
 
 	//newResult.value = returnResult.value;

@@ -19,11 +19,9 @@ export class SearchService {
   constructor(private http: HttpClient) {}  
   
   sayHello(): Observable<Hello> {
-	  console.log('sayHello()');
+    console.log('sayHello()');
 	  return this.http.get<Hello>('http://localhost:3000/hello');
   };   
-    //let result = 'clicked';
-  
     
      //return  this.http.get<Task[]>('http://localhost:3000/tasks');
    //return  this.http.get<Task[]>(' https://kurtmongoserver.azurewebsites.net/tasks/');
