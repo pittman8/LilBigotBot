@@ -5,6 +5,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const HelloSchema = new Schema({
+	  _id: {
+    type: String,
+    required: false
+  },
   value: {
     type: String,
     required: false
