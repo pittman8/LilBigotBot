@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { HelloService } from '../hello.service';
+import { Hello } from '../Hello';
 
 @Component({
   selector: 'app-search',
@@ -8,16 +11,24 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
   input_search = 'example_user';
   result = 'Output holder';
+  clientHello: Hello = new Hello();
 
-  startSearch() {
-    let newResult = 'Searched for ' + this.input_search ;
-
-    //contact server to search 
-
-    this.result = newResult;
+  getHello(): void {
+    //sends value from search bar to server
+    //and displays the value it returns
+    this.clientHello.value = this.input_search;
+    this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
+      //this stuff is asynchronous
+      this.clientHello = serverHello;
+      this.result = this.clientHello.value;
+    });
   }
-  constructor() { }
+
+  constructor(private myTaskService: HelloService, private router: Router) { }
+
   ngOnInit() {
-  }
+    this.clientHello.value = "default";
+    this.clientHello._id = '00000';
+    }
 
 }
