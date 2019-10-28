@@ -25,7 +25,7 @@ export class HelloService {
   constructor(private http: HttpClient) {}
 
   sayHello(clientHello: Hello): Observable<Hello> {    
-    return  this.http.post<Hello>('http://localhost:80/hello', clientHello);
+    return  this.http.post<Hello>('http://isit422websitefall2019.azurewebsites.net/hello', clientHello);
     //return  this.http.get<Task[]>(' https://kurtmongoserver.azurewebsites.net/tasks/');
   }
 }
