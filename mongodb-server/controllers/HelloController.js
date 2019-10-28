@@ -1,15 +1,16 @@
 const Hello = require("../models/Hello");
 
+exports.returnFake = (res) => {
+  //returns fake data, nothing calls this though
+  let serverHello = new Hello();
+  serverHello._id = '99999';
+  serverHello.value = 'success';
+  res.json(serverHello);
+};
+
 exports.returnHello = (req, res) => {
-  /*Hello.find({}, (err, task) => {
-    if (err) {
-      res.status(500).send(err);
-    }
-    res.status(200).json(task);
-  });*/
-  
-  console.log('Hello :)');
-  returnValue = new Hello();
-  returnValue.value = 'success';
-  return returnValue;
+  //recieves a Hello and returns it
+  let serverHello = new Hello(req.body);
+  serverHello._id = '99999';
+  res.json(serverHello);
 };

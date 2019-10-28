@@ -8,7 +8,9 @@
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Hello } from './Hello';
+
 export interface Hello {   // I have no idea what this does!!!
+  _id: String;
  value: string;
 }
 
@@ -22,8 +24,8 @@ import { Injectable } from '@angular/core';
 export class HelloService {
   constructor(private http: HttpClient) {}
 
-  sayHello(): Observable<Hello> {
-    return  this.http.get<Hello>('http://localhost:80/hello');
+  sayHello(clientHello: Hello): Observable<Hello> {    
+    return  this.http.post<Hello>('http://localhost:80/hello', clientHello);
     //return  this.http.get<Task[]>(' https://kurtmongoserver.azurewebsites.net/tasks/');
   }
 }
