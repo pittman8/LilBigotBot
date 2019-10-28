@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnalyticsComponent implements OnInit {
 
+  totalSwears = 8;
+  totalCalls = 1;
   constructor() { }
 
   ngOnInit() {
