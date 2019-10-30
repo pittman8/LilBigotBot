@@ -1,7 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
-//const taskController = require("./controllers/TaskController");
+const tweetController = require("./controllers/TweetController");
+const statController = require("./controllers/StatController");
 const helloController = require("./controllers/HelloController");
 const cors = require('cors')  // using this module to solve CORS problem
 // note the extra line in package.json to download this code
@@ -14,7 +15,7 @@ optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke
 
 
 // db instance connection
-//require("./config/db");
+require("./config/db");
 require("./callTwitter");
 
 const port = process.env.PORT || 80;
@@ -41,6 +42,20 @@ app
   .put(taskController.updateTask)
   .delete(taskController.deleteTask);
 */
+app
+  .route("/tweets")
+  .get(tweetController.listAllTweets)
+  .post(tweetController.createNewTweet);
+app
+  .route("/stats")
+  .get(statController.listAllStats)
+  //.post(StatController.createNewStat);
+  .put(statController.updateStat)
+app
+  .route("/tweets/:tweetid")
+  .get(tweetController.readTweet)
+  .put(tweetController.updateTweet)
+  .delete(tweetController.deleteTweet);
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });
