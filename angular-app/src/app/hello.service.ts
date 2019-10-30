@@ -26,6 +26,6 @@ export class HelloService {
 
   sayHello(clientHello: Hello): Observable<Hello> {    
     //return  this.http.post<Hello>('http://localhost:80/hello', clientHello);
-    return  this.http.get<Hello>('https://bigotbotserver.azurewebsites.net/hello');
+    return  this.http.post<Hello>('https://bigotbotserver.azurewebsites.net/hello', clientHello);
   }
 }
