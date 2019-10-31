@@ -8,7 +8,8 @@ const cors = require('cors')  // using this module to solve CORS problem
 // note the extra line in package.json to download this code
 
 var corsOptions = {
-  origin: 'https://isit422clientfall2019.azurewebsites.net',   // this URL must match the URL that the Angular app will call from
+//origin: 'http://localhost:4200',
+origin: 'https://isit422clientfall2019.azurewebsites.net',   // this URL must match the URL that the Angular app will call from
 //origin: 'kurtangularappfall2019.azurewebsites.net',   // this URL must match the URL that the Angular app will call from
 optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204 
 }
@@ -16,7 +17,7 @@ optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke
 
 // db instance connection
 require("./config/db");
-require("./callTwitter");
+//require("./callTwitter");
 
 const port = process.env.PORT || 80;
 app.use(bodyParser.urlencoded({ extended: true }));
