@@ -16,7 +16,7 @@ exports.config = {
     'browserName': 'chrome'
   },
   directConnect: true,
-  baseUrl: 'https://localhost:4200',
+  baseUrl: 'https://bigotbotclient.azurewebsites.net/',
   framework: 'jasmine',
   jasmineNodeOpts: {
     showColors: true,
