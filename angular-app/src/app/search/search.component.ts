@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelloService } from '../hello.service';
 import { Hello } from '../Hello';
+import { NgxTweetModule } from "ngx-tweet";
 
 @Component({
   selector: 'app-search',
