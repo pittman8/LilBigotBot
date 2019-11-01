@@ -2,4 +2,5 @@
 export class Hello {
    _id: String;
     value: string;
+    tweetid: string
   }

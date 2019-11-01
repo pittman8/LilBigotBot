@@ -18,12 +18,13 @@ exports.returnHello = (req, res) => {
     let testo = twitt.twitconn(serverHello.value)
     //console.log(testo);
     //console.log(serverHello.value);
-    //console.log(testo);
     resolve(testo);
 
 
 }).then(function(value){
-  serverHello.value = value
+  console.log(value[3]);
+  console.log(typeof value);
+  serverHello.tweetObject = value;
   res.json(serverHello);
 })
   

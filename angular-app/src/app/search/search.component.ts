@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   input_search = 'example_user';
   result = 'Output holder';
   clientHello: Hello = new Hello();
+  IdArray = [];
 
   getHello(): void {
     //sends value from search bar to server
@@ -21,7 +22,11 @@ export class SearchComponent implements OnInit {
     this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
+      console.log(serverHello.value);
       this.result = this.clientHello.value;
+      for (var i = 0; i < this.result.length; i++) {
+        
+      }
     });
   }
 
