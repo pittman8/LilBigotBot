@@ -9,9 +9,12 @@ import { Hello } from '../Hello';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent implements OnInit {
-  input_search = 'example_user';
+  input_search = 'realdonaldtrump';
   result = 'Output holder';
   clientHello: Hello = new Hello();
+  numSlurs = ' ';
+  idArray = [];
+ // embedded = 'embedded tweet here';
 
   getHello(): void {
     //sends value from search bar to server
@@ -20,7 +23,19 @@ export class SearchComponent implements OnInit {
     this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
+      //console.log(serverHello.value);
+      var stringify = JSON.parse(serverHello.value);
+      // console.log(stringify);
+     //  console.log(stringify.statuses[0].id);
+       //console.log(stringify.statuses.length);
+       for(var i = 0; i < stringify.statuses.length; i++) {
+         console.log(stringify.statuses[i].id);
+         this.idArray.push(stringify.statuses[i].id);
+       }
+     //  console.log(this.idArray);
       this.result = this.clientHello.value;
+      this.numSlurs = this.idArray.length.toString();
+      //this.embedded = this.idArray[0];
     });
   }
 
