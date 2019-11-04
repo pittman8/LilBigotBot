@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelloService } from '../hello.service';
 import { Hello } from '../Hello';
@@ -13,6 +13,7 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
   clientHello: Hello = new Hello();
   numSlurs = ' ';
+//@Input() tweetIds : string[];
 tweetIds = [];
  // embedded = 'embedded tweet here';
 
@@ -29,10 +30,14 @@ tweetIds = [];
      //  console.log(stringify.statuses[0].id);
        //console.log(stringify.statuses.length);
        for(var i = 0; i < stringify.statuses.length; i++) {
-         console.log(stringify.statuses[i].id);
+        // console.log(stringify.statuses[i].id);
          this.tweetIds.push(stringify.statuses[i].id);
        }
-     //  console.log(this.idArray);
+      //  console.log(this.theIds);
+      //  for(var i = 0; i < this.theIds.length; i++) {
+      //     this.tweetIds.push(this.theIds[i]);
+      //  }
+       console.log(this.tweetIds);
       this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];

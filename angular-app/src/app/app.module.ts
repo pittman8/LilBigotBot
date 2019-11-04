@@ -9,6 +9,9 @@ import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxTweetModule } from "ngx-tweet";
+//import { TwitterWidget } from "ngtweet";
+
+import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
 
 @NgModule({
   declarations: [
@@ -22,10 +25,13 @@ import { NgxTweetModule } from "ngx-tweet";
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgxTweetModule
+    NgxTweetModule,
+    NgxTwitterTimelineModule,
+    //NgTwitterWidgetModule
   ],
   exports: [
     SearchComponent
+  //  TwitterWidgetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
