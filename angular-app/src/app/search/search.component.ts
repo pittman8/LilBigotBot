@@ -13,7 +13,7 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
   clientHello: Hello = new Hello();
   numSlurs = ' ';
-  idArray = [];
+tweetIds = [];
  // embedded = 'embedded tweet here';
 
   getHello(): void {
@@ -30,11 +30,11 @@ export class SearchComponent implements OnInit {
        //console.log(stringify.statuses.length);
        for(var i = 0; i < stringify.statuses.length; i++) {
          console.log(stringify.statuses[i].id);
-         this.idArray.push(stringify.statuses[i].id);
+         this.tweetIds.push(stringify.statuses[i].id);
        }
      //  console.log(this.idArray);
       this.result = this.clientHello.value;
-      this.numSlurs = this.idArray.length.toString();
+      this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];
     });
   }
