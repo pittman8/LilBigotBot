@@ -1,5 +1,6 @@
 const Hello = require("../models/Hello");
 const twitt = require("./Twittercontrol");
+const stats = require("./StatController");
 
 exports.returnFake = (res) => {
   //returns fake data, nothing calls this though
@@ -24,9 +25,32 @@ exports.returnHello = (req, res) => {
 
 }).then(function(value){
   serverHello.value = value
+  updateStats();
   res.json(serverHello);
 })
-  
-
   //res.json(serverHello);
+};
+
+
+updateStats = () =>{
+new Promise(function(resolve, reject) {
+  let statread = stats.readStatret();
+  resolve(statread);
+
+}).then(function(value){
+  
+  let holdval = value;
+  holdval.Connections = holdval.Connections + 1;
+  //console.log(holdval);
+  return holdval;
+}).then(function(value){
+  
+  //console.log("why");
+  //console.log(value);
+  return stats.updateStatret(value);
+}).then(function(value){
+  console.log(value)
+;})
+
+
 };
