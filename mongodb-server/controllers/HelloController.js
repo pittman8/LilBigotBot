@@ -26,13 +26,13 @@ exports.returnHello = (req, res) => {
   serverHello.value = value;
   //console.log(value);
   res.json(serverHello);
-//   var stringify = JSON.parse(value);
-//  // console.log(stringify);
-//   console.log(stringify.statuses[0].id);
-//   console.log(stringify.statuses.length);
-//   for(var i = 0; i < stringify.statuses.length; i++) {
-//     console.log(stringify.statuses[i].id);
-//   }
+  var stringify = JSON.parse(value);
+ // console.log(stringify);
+  console.log(stringify.statuses[0].id);
+  console.log(stringify.statuses.length);
+  for(var i = 0; i < stringify.statuses.length; i++) {
+    console.log(stringify.statuses[i].id);
+  }
 })
   
 

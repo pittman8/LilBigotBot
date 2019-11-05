@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { NgxTweetModule } from "ngx-tweet";
 //import { TwitterWidget } from "ngtweet";
 
-import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
+//import { NgxTweetListModule } from 'ngx-twitter';
 
 @NgModule({
   declarations: [
@@ -26,7 +26,6 @@ import { NgxTwitterTimelineModule } from 'ngx-twitter-timeline';
     FormsModule,
     HttpClientModule,
     NgxTweetModule,
-    NgxTwitterTimelineModule,
     //NgTwitterWidgetModule
   ],
   exports: [

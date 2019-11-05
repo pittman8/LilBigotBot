@@ -13,9 +13,7 @@ export class SearchComponent implements OnInit {
   result = 'Output holder';
   clientHello: Hello = new Hello();
   numSlurs = ' ';
-//@Input() tweetIds : string[];
 tweetIds = [];
- // embedded = 'embedded tweet here';
 
   getHello(): void {
     //sends value from search bar to server
