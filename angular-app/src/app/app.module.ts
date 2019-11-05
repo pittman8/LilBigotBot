@@ -8,6 +8,10 @@ import { ResourcesComponent } from './resources/resources.component';
 import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AppRoutingModule } from './app-routing.module';
+import { NgxTweetModule } from "ngx-tweet";
+//import { TwitterWidget } from "ngtweet";
+
+//import { NgxTweetListModule } from 'ngx-twitter';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,13 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule  
+    HttpClientModule,
+    NgxTweetModule,
+    //NgTwitterWidgetModule
+  ],
+  exports: [
+    SearchComponent
+  //  TwitterWidgetModule
   ],
   providers: [],
   bootstrap: [AppComponent]
