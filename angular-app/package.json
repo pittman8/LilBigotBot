@@ -21,7 +21,6 @@
     "@angular/router": "~8.2.4",
     "ngx-tweet": "^2.0.3",
     "ngtweet": "^1.0.0",
-    "ngx-tweet": "^2.0.3",
     "ngx-twitter": "^1.0.1",
     "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "~6.4.0",
