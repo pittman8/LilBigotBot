@@ -8,7 +8,26 @@
     </div>
 
 <button id='btn_search' (click)='getHello()'>Search</button>
-    <!-- <ngx-tweet tweetId="1190079193582899200"></ngx-tweet> -->
+    
+<div id="calendarBox"></div>
+
+<!-- <script>
+
+    function myCtrl($scope) {
+        $scope.AppendHtml = function() {
+         var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
+         
+
+         for(var i = 0; i < tweetIds.length; i++){
+            let tweetelement = tweetIds[i];
+            myEl.append('<ngx-tweet tweetId="'+tweetelement+'"></ngx-tweet></br>');
+         }
+              
+        }
+    }
+    </script> -->
+
+<ngx-tweet tweetId="1190079193582899200"></ngx-tweet>
     <!-- <ngx-tweet *ngFor="let tweetId of tweetIds" [tweetId]="tweetId"></ngx-tweet> -->
 <!-- <twitter-widget twitter-widget-id="'1190079193582899200'"> -->
 <!-- </twitter-widget> -->

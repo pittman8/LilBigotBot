@@ -15,17 +15,19 @@
     "@angular/common": "~8.2.4",
     "@angular/compiler": "~8.2.4",
     "@angular/core": "~8.2.4",
+    "@angular/elements": "^8.2.10",
     "@angular/forms": "~8.2.4",
     "@angular/platform-browser": "~8.2.4",
     "@angular/platform-browser-dynamic": "~8.2.4",
     "@angular/router": "~8.2.4",
-    "ngx-tweet": "^2.0.3",
     "ngtweet": "^1.0.0",
+    "ngx-tweet": "^2.0.3",
     "ngx-twitter": "^1.0.1",
     "ngx-twitter-timeline": "^0.1.5",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
-    "zone.js": "~0.9.1"
+    "zone.js": "~0.9.1",
+    "document-register-element": "^1.7.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.803.3",

@@ -4,6 +4,8 @@ import { HelloService } from '../hello.service';
 import { Hello } from '../Hello';
 import { NgxTweetModule } from "ngx-tweet";
 
+
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -46,6 +48,16 @@ tweetIds = [];
       this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];
+
+      var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
+     
+
+     for(var i = 0; i < this.tweetIds.length; i++){
+        let tweetelement = this.tweetIds[i];
+        
+        myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
+        //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
+     }
     });
   }
 
