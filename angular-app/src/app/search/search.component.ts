@@ -13,12 +13,9 @@ export class SearchComponent implements OnInit {
   input_search = 'realdonaldtrump';
   result = 'Output holder';
   clientHello: Hello = new Hello();
-<<<<<<< HEAD
   IdArray = [];
-=======
   numSlurs = ' ';
 tweetIds = [];
->>>>>>> 8d189238d32b7defb0ed1a93d5bd602d10eb8daf
 
   getHello(): void {
     //sends value from search bar to server
@@ -27,13 +24,11 @@ tweetIds = [];
     this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
-<<<<<<< HEAD
       console.log(serverHello.value);
       this.result = this.clientHello.value;
       for (var i = 0; i < this.result.length; i++) {
         
       }
-=======
       //console.log(serverHello.value);
       var stringify = JSON.parse(serverHello.value);
       // console.log(stringify);
@@ -51,7 +46,6 @@ tweetIds = [];
       this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];
->>>>>>> 8d189238d32b7defb0ed1a93d5bd602d10eb8daf
     });
   }
 
