@@ -1,4 +1,11 @@
-<script>window.twttr = (function(d, s, id) {
+
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.1/angular.min.js"></script> 
+<script src="bower_modules/ngtweet/dist/ngtweet.min.js"></script> 
+<script type="text/javascript" charset="utf-8">
+    var myApp = angular.module('myApp', ['ngtweet']);
+</script> 
+
+<!-- <script>window.twttr = (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0],
       t = window.twttr || {};
     if (d.getElementById(id)) return t;
@@ -13,7 +20,7 @@
     };
   
     return t;
-  }(document, "script", "twitter-wjs"));</script>
+  }(document, "script", "twitter-wjs"));</script> -->
 
 <div class="component" id='component_search'>
     <p>Search an account's post history</p>
@@ -27,6 +34,10 @@
 <button id='btn_search' (click)='getHello()'>Search</button>
     
 <div id="calendarBox"></div>
+<div ng-repeat="tweetID in tweetIDs track by $index">
+    <twitter-widget twitter-widget-id="tweetID">
+    </twitter-widget>
+</div>
 
 <!-- <blockquote class="twitter-tweet"><p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>. <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a> <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a> <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior) <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
  -->

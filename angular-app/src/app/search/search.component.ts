@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelloService } from '../hello.service';
 import { Hello } from '../Hello';
-import { NgxTweetModule } from "ngx-tweet";
+//import { NgxTweetModule } from "ngx-tweet";
+//import {TweetComponent} from "ngx-twitter"
 
 
 

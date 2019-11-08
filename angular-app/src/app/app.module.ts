@@ -9,7 +9,7 @@ import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxTweetModule } from "ngx-tweet";
-//import { TwitterWidget } from "ngtweet";
+
 
 //import { NgxTweetListModule } from 'ngx-twitter';
 
@@ -26,7 +26,8 @@ import { NgxTweetModule } from "ngx-tweet";
     FormsModule,
     HttpClientModule,
     NgxTweetModule,
-    //NgTwitterWidgetModule
+    //TwitterWidget
+    //Ngx
   ],
   exports: [
     SearchComponent
