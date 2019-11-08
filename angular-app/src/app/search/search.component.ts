@@ -19,6 +19,7 @@ export class SearchComponent implements OnInit {
   numSlurs = ' ';
 tweetIds = [];
 
+
   getHello(): void {
     //sends value from search bar to server
     //and displays the value it returns
@@ -56,7 +57,10 @@ tweetIds = [];
         let tweetelement = this.tweetIds[i];
         
         myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
+        
         //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
+        //NgxTweetModule.ngOnInit()
+        
      }
     });
   }
