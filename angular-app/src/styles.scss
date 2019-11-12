@@ -2,7 +2,7 @@
 // @import "../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css";
 
 html, body { height: 100%; }
-body { margin: 0; }
+body { margin: 0; background-color: #000000;  color: white; }
 
 * {
   font-family: "OCR A Std", monospace;
@@ -15,7 +15,6 @@ body { margin: 0; }
   background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-
   text-decoration: none;
   flex: 1 1 auto;
   justify-content: center;
@@ -29,7 +28,7 @@ h1 {
   color:transparent;
   -webkit-background-clip: text;
   background-clip: text;
-  text-shadow: 2px 2px #000000;
+
 }
 
 nav a {
