@@ -101,13 +101,13 @@ tweettext = [];
 
   
   ngDoCheck(): void {
-    console.log("tzeench");
+    //console.log("tzeench");
     //twttr.widgets.load();
   }
   
   ngOnChanges() {
     
-    console.log("tzeench");
+    //console.log("tzeench");
     
   }
 
