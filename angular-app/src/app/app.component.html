@@ -1,15 +1,50 @@
-<div style="text-align:center">
-  <nav>
-    <a routerLink="/">Home</a>
-    <a routerLink="/search">Search</a>
-    <a routerLink="/analytics">Analytics</a>
-    <a routerLink="/resources">Resources</a>
-  </nav>
+<!-- <mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <button mat-icon-button>
+      <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    </button>
+    <h1>SimpleCRM</h1>
+    <span class="menu-spacer"></span>
+    <div>
+      <a mat-button [routerLink]="'/accounts'"> Accounts </a>
+      <a mat-button [routerLink]="'/create-account'"> Create Account </a>
+      <a mat-button [routerLink]="'/contacts'"> Contacts </a>
+      <a mat-button [routerLink]="'/create-contact'"> Create Contact </a>
+      <a mat-button [routerLink]="'/activities'"> Activities </a>
+      <a mat-button [routerLink]="'/create-activity'"> Create Activity </a>
 
+    </div>
+  </mat-toolbar-row>
+
+  <mat-toolbar-row>
+      <span style="font-size: 12px;">SimpleCRM helps you easily manage your contacts</span>
+    </mat-toolbar-row>
+</mat-toolbar> -->
+
+<mat-toolbar class="mdc-typography">
+  <mat-toolbar-row>
   <h1>
     Welcome to {{ title }}!
   </h1>
+  <img src="assets/img/gayrobot.jpeg" height="60">
+</mat-toolbar-row>
+
+<mat-toolbar-row>
+  <div class="flex-container">
+   <b> <a mat-button [routerLink]="'/'">Home </a>
+     <a mat-button [routerLink]="'/search'">Search</a>
+      <a mat-button [routerLink]="'/analytics'">Analytics</a>
+      <a mat-button [routerLink]="'/resources'">Resources</a> </b>
+  </div>
+</mat-toolbar-row>
   
-  <router-outlet></router-outlet>
   <!-- <ngx-tweet-list [tweetIds]="arr"></ngx-tweet-list> -->
-</div>
+</mat-toolbar>
+<pre>
+
+
+
+
+
+</pre>
+<mat-toolbar-row><router-outlet></router-outlet></mat-toolbar-row>
