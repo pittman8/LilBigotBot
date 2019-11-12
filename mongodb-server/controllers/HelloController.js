@@ -3,7 +3,7 @@ const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 
 getQueryString = () => {
-  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite'];
+  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
   let queryString = '';
   for (i=0;i<slurBank.length; i++) {
     queryString += ' ' + slurBank[i]

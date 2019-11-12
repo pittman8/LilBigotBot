@@ -32,7 +32,7 @@ tweetdate = [];
       //this stuff is asynchronous
       this.clientHello = serverHello;
       console.log(serverHello.value);
-      this.result = this.clientHello.value;
+      //this.result = this.clientHello.value;
       for (var i = 0; i < this.result.length; i++) {
         
       }
@@ -59,13 +59,14 @@ tweetdate = [];
       //     this.tweetIds.push(this.theIds[i]);
       //  }
        console.log(this.tweetIds);
-      this.result = this.clientHello.value;
+      //this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];
 
       var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
       var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
-      var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
+      //var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
+      var myLl = /* angular.element( */ document.querySelector( '#output_text' ) /* ) */;
      
       myLl.innerHTML = "";
 
@@ -96,7 +97,7 @@ tweetdate = [];
         let tweetdate = this.tweetdate[i];
         
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">'+tweetdate+'</a></blockquote><br>';
 
         //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //myEl.innerHTML += "<p>"+tweet"</p></br>";
