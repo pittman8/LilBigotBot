@@ -9,6 +9,9 @@ import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 import { AppRoutingModule } from './app-routing.module';
 import { NgxTweetModule } from "ngx-tweet";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatIconModule, MatSidenavModule, MatListModule, MatButtonModule } from  '@angular/material';
+
 //import { TwitterWidget } from "ngtweet";
 
 //import { NgxTweetListModule } from 'ngx-twitter';
@@ -26,6 +29,12 @@ import { NgxTweetModule } from "ngx-tweet";
     FormsModule,
     HttpClientModule,
     NgxTweetModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatButtonModule,
+    MatIconModule
     //NgTwitterWidgetModule
   ],
   exports: [
