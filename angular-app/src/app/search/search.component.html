@@ -1,3 +1,23 @@
+<!-- <script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+    if (d.getElementById(id)) return t;
+    js = d.createElement(s);
+    js.id = id;
+    js.src = "https://platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js, fjs);
+  
+    t._e = [];
+    t.ready = function(f) {
+      t._e.push(f);
+    };
+  
+    return t;
+  }(document, "script", "twitter-wjs"));</script> -->
+
+
+  
+
 <div class="component" id='component_search'>
     <p>Search an account's post history</p>
     
@@ -10,6 +30,8 @@
 <button id='btn_search' (click)='getHello()'>Search</button>
     
 <div id="calendarBox"></div>
+<div id="tweettexthold"></div>
+<div id="tester"></div>
 
 <!-- <script>
 
@@ -35,4 +57,8 @@
         <p>Number of times this user slurred in the past week: {{numSlurs}}</p>
         <p>{{result}}</p>
     </div>
+
+    <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">....this decision, but in the end it will be best for all concerned. As President, I will always be there to help New York and the great people of New York. It will always have a special place in my heart!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote>
+
+<!-- <script id="twitter-wjs" type="text/javascript" async defer src="//platform.twitter.com/widgets.js"></script> -->
 </div>
