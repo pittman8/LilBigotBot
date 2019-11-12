@@ -14,7 +14,6 @@ export interface Hello {   // I have no idea what this does!!!
  value: string;
 }
 
-
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -27,5 +26,10 @@ export class HelloService {
   sayHello(clientHello: Hello): Observable<Hello> {    
     //return  this.http.post<Hello>('http://localhost:80/hello', clientHello);
     return  this.http.post<Hello>('https://bigotbotserver.azurewebsites.net/hello', clientHello);
+  }
+
+  getSlurs(): Observable<Hello> {    
+    return  this.http.get<Hello>('http://localhost:80/slurs');
+    //return  this.http.post<Hello>('https://bigotbotserver.azurewebsites.net/hello');
   }
 }

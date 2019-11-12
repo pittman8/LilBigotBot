@@ -16,6 +16,10 @@ const HelloSchema = new Schema({
   tweetObject: {
     type: Object,
     required: false
+  },
+  array: {
+    type: String,
+    required: false
   }
 });
 

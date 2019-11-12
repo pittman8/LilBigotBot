@@ -2,6 +2,18 @@ const Hello = require("../models/Hello");
 const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 
+exports.returnSlurs = (res) => {
+  //returns slurBank
+  console.log('returnSlurs()');
+  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite'];
+  let serverHello = new Hello();
+  serverHello.value = 'test';
+  serverHello._id = '99999';
+  serverHello.array = slurBank;
+  return serverHello;
+};
+
+
 exports.returnFake = (res) => {
   //returns fake data, nothing calls this though
   let serverHello = new Hello();

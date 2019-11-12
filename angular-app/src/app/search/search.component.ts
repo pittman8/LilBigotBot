@@ -18,6 +18,17 @@ export class SearchComponent implements OnInit {
   IdArray = [];
   numSlurs = ' ';
 tweetIds = [];
+slurBank = [];
+
+getSlurs(): void {
+  //just shows some slurs
+  console.log('getSlurs()');
+  this.myTaskService.getSlurs().subscribe((serverHello: Hello) => {      
+    //this stuff is asynchronous
+    this.slurBank = serverHello.array;
+    console.log(this.slurBank);
+  });
+}
 
   getHello(): void {
     //sends value from search bar to server
@@ -37,7 +48,7 @@ tweetIds = [];
      //  console.log(stringify.statuses[0].id);
        //console.log(stringify.statuses.length);
        for(var i = 0; i < stringify.statuses.length; i++) {
-        // console.log(stringify.statuses[i].id);
+        // console.log(stringify.statuses[i].id);s
          this.tweetIds.push(stringify.statuses[i].id);
        }
       //  console.log(this.theIds);
