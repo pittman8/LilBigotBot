@@ -20,6 +20,9 @@ export class SearchComponent implements OnInit {
   numSlurs = ' ';
 tweetIds = [];
 tweettext = [];
+tweetuser = [];
+tweethandle = [];
+tweetdate = [];
 
   getHello(): void {
     //sends value from search bar to server
@@ -38,11 +41,18 @@ tweettext = [];
       // console.log(stringify);
      //  console.log(stringify.statuses[0].id);
        //console.log(stringify.statuses.length);
-       this.tweetIds = [];
+      this.tweetIds = [];
+      this.tweettext = [];
+      this.tweetuser = [];
+      this.tweethandle = [];
+      this.tweetdate = [];
        for(var i = 0; i < stringify.statuses.length; i++) {
         // console.log(stringify.statuses[i].id);
          this.tweetIds.push(stringify.statuses[i].id);
          this.tweettext.push(stringify.statuses[i].text);
+         this.tweetuser.push(stringify.statuses[i].user.name);
+         this.tweethandle.push(stringify.statuses[i].user.screen_name);
+         this.tweetdate.push(stringify.statuses[i].created_at);
        }
       //  console.log(this.theIds);
       //  for(var i = 0; i < this.theIds.length; i++) {
@@ -57,11 +67,13 @@ tweettext = [];
       var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
       var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
      
+      myLl.innerHTML = "";
+
       for(var i = 0; i < this.tweettext.length; i++){
         let tweetelement = this.tweettext[i];
         
         
-        myTl.innerHTML += "<p>"+tweetelement+"</p></br>";
+        //myTl.innerHTML += "<p>"+tweetelement+"</p></br>";
         //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
         //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
      }
@@ -70,7 +82,7 @@ tweettext = [];
       let tweetelement = this.tweettext[i];
       
       
-      myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweetelement+'</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
+      //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweetelement+'</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
       //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
       //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
    }
@@ -78,10 +90,17 @@ tweettext = [];
 
      for(var i = 0; i < this.tweetIds.length; i++){
         let tweetelement = this.tweetIds[i];
+        let tweettexts = this.tweettext[i];
+        let tweetuser = this.tweetuser[i];
+        let tweethandle = this.tweethandle[i];
+        let tweetdate = this.tweetdate[i];
         
-        
+
+        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+
+        //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //myEl.innerHTML += "<p>"+tweet"</p></br>";
-        myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
+        //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
         //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
      }
     });
