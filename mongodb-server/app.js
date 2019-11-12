@@ -4,6 +4,7 @@ const app = express();
 const tweetController = require("./controllers/TweetController");
 const statController = require("./controllers/StatController");
 const helloController = require("./controllers/HelloController");
+const AnalyticsController = require("./controllers/AnalyticsController");
 const cors = require('cors')  // using this module to solve CORS problem
 // note the extra line in package.json to download this code
 
@@ -52,6 +53,9 @@ app
   .get(statController.listAllStats)
   //.post(StatController.createNewStat);
   .put(statController.updateStat)
+app
+  .route("/analytics")
+  .get(AnalyticsController.returnconn)
 app
   .route("/tweets/:tweetid")
   .get(tweetController.readTweet)
