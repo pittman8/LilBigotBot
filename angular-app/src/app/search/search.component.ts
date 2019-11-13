@@ -4,8 +4,7 @@ import { HelloService } from '../hello.service';
 import { Hello } from '../Hello';
 import { NgxTweetModule } from "ngx-tweet";
 
-
-
+declare var twttr;
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
@@ -48,7 +47,7 @@ tweetdate = [];
       this.tweetdate = [];
        for(var i = 0; i < stringify.statuses.length; i++) {
         // console.log(stringify.statuses[i].id);
-         this.tweetIds.push(stringify.statuses[i].id);
+         this.tweetIds.push(stringify.statuses[i].id_str);
          this.tweettext.push(stringify.statuses[i].text);
          this.tweetuser.push(stringify.statuses[i].user.name);
          this.tweethandle.push(stringify.statuses[i].user.screen_name);
@@ -97,32 +96,36 @@ tweetdate = [];
         let tweetdate = this.tweetdate[i];
         
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">'+tweetdate+'</a></blockquote><br>';
+        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
 
         //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //myEl.innerHTML += "<p>"+tweet"</p></br>";
         //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
         //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
+        
      }
+     twttr.widgets.load();
     });
   }
 
-  constructor(private myTaskService: HelloService, private router: Router) { }
+  constructor(private myTaskService: HelloService, private router: Router,) { }
 
   ngOnInit() {
     this.clientHello.value = "default";
     this.clientHello._id = '00000';
+    //this.loadScripts();
     }
 
     ngAfterViewInit(): void {
       // @ts-ignore
-      twttr.widgets.load();
+      //twttr.widgets.load();
   }
 
   
   ngDoCheck(): void {
     //console.log("tzeench");
     //twttr.widgets.load();
+    //this.loadScripts();
   }
   
   ngOnChanges() {
