@@ -10,6 +10,7 @@ import { Stats } from '../stats';
 })
 export class AnalyticsComponent implements OnInit {
   result = 'Output holder';
+  slurs = '';
   clientHello: Stats = new Stats();
   numSlurs = ' ';
 
@@ -22,6 +23,7 @@ export class AnalyticsComponent implements OnInit {
       this.clientHello = serverHello;
       //console.log(serverHello);
       this.result = this.clientHello.Connections;
+      this.slurs = this.clientHello.Slurs;
       
      
     });

@@ -37,7 +37,7 @@ tweetdate = [];
       }
       //console.log(serverHello.value);
       var stringify = JSON.parse(serverHello.value);
-      // console.log(stringify);
+      console.log(stringify);
      //  console.log(stringify.statuses[0].id);
        //console.log(stringify.statuses.length);
       this.tweetIds = [];

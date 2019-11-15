@@ -15,6 +15,7 @@ exports.returnconn = (req, res) => {
   let serverHello = new Stat(req.body);
   serverHello._id = '99999';
   serverHello.Connections = 1;
+  serverHello.Slurs = 1;
   new Promise(function(resolve, reject) {
 
     let statread = stats.readStatret();
@@ -25,7 +26,8 @@ exports.returnconn = (req, res) => {
 
 }).then(function(value){
   //console.log(value.Connections);
-    serverHello.Connections = value.Connections
+    serverHello.Connections = value.Connections;
+    serverHello.Slurs = value.Slurs;
   res.json(serverHello);
 })
   //res.json(serverHello);
