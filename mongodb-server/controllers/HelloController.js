@@ -93,7 +93,8 @@ updateRanking = (handle) =>{
       count: 1
     };
     console.log(twhold);
-    let tread = tweetc.createNewTweet(twhold);
+    
+    let tread = tweetc.readTweet(handle);
     resolve(tread);
   
   }).then(function(value){
@@ -103,14 +104,19 @@ updateRanking = (handle) =>{
       count: 1
     };
     let twup = 'null';
-    if(value.errmsg != undefined){
+    if(value == null){
       console.log("beep");
-      //twhold = value;
-      twhold = tweetc.readTweet(handle);
-      twhold.count = twhold.count + 1;
+      
+      
+      twup = tweetc.createNewTweet(twhold);
+      
       console.log(twhold);
+      
+    }else {
+      twhold = value;
+      twhold.count = twhold.count + 1;
       twup = tweetc.updateTweet(twhold);
-    }
+    };
     
     //twup = tweetc.updateTweet(twhold);
     
