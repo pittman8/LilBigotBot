@@ -2,18 +2,30 @@ const Hello = require("../models/Hello");
 const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 
-getQueryString = () => {
-  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  let queryString = '';
-  for (i=0;i<slurBank.length; i++) {
-    queryString += ' ' + slurBank[i]
-    if (i<slurBank.length-1) {
-      queryString += ' OR'
-    }
 
-  }
-  return queryString;
-}
+// getQueryString = () => {
+//   const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+//   let queryString = '';
+//   for (i=0;i<slurBank.length; i++) {
+//     queryString += ' ' + slurBank[i]
+//     if (i<slurBank.length-1) {
+//       queryString += ' OR'
+//     }
+
+//   }
+//   return queryString;
+// }
+
+exports.returnSlurs = (res) => {
+  //returns slurBank
+  console.log('returnSlurs()');
+  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite'];
+  let serverHello = new Hello();
+  serverHello.value = 'test';
+  serverHello._id = '99999';
+  serverHello.array = slurBank;
+  return serverHello;
+};
 
 exports.returnFake = (res) => {
   //returns fake data, nothing calls this though

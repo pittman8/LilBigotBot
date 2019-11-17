@@ -32,6 +32,9 @@ app
   .route("/hello")
   .get(helloController.returnFake)
   .post(helloController.returnHello);
+app
+  .route("/slurs")
+  .get(helloController.returnSlurs);
 /*
 app
   .route("/tasks")

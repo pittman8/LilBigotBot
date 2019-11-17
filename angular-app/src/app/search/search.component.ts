@@ -18,10 +18,24 @@ export class SearchComponent implements OnInit {
   IdArray = [];
   numSlurs = ' ';
 tweetIds = [];
+<<<<<<< HEAD
 tweettext = [];
 tweetuser = [];
 tweethandle = [];
 tweetdate = [];
+=======
+slurBank = [];
+
+getSlurs(): void {
+  //just shows some slurs
+  console.log('getSlurs()');
+  this.myTaskService.getSlurs().subscribe((serverHello: Hello) => {      
+    //this stuff is asynchronous
+    this.slurBank = serverHello.array;
+    console.log(this.slurBank);
+  });
+}
+>>>>>>> d8d3a9819c6b32303a87a180a6eeb800577c96e9
 
   getHello(): void {
     //sends value from search bar to server
@@ -46,12 +60,17 @@ tweetdate = [];
       this.tweethandle = [];
       this.tweetdate = [];
        for(var i = 0; i < stringify.statuses.length; i++) {
+<<<<<<< HEAD
         // console.log(stringify.statuses[i].id);
          this.tweetIds.push(stringify.statuses[i].id_str);
          this.tweettext.push(stringify.statuses[i].text);
          this.tweetuser.push(stringify.statuses[i].user.name);
          this.tweethandle.push(stringify.statuses[i].user.screen_name);
          this.tweetdate.push(stringify.statuses[i].created_at);
+=======
+        // console.log(stringify.statuses[i].id);s
+         this.tweetIds.push(stringify.statuses[i].id);
+>>>>>>> d8d3a9819c6b32303a87a180a6eeb800577c96e9
        }
       //  console.log(this.theIds);
       //  for(var i = 0; i < this.theIds.length; i++) {
