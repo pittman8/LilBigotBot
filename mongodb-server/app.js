@@ -31,7 +31,8 @@ app.use(cors(corsOptions))   // bringing in the CORS code to our app
 app
   .route("/hello")
   .get(helloController.returnFake)
-  .post(helloController.returnHello);
+  .post(helloController.returnHello)
+  .post(helloController.returnSlurs);
 /*
 app
   .route("/tasks")

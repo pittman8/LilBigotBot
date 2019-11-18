@@ -22,19 +22,27 @@ tweettext = [];
 tweetuser = [];
 tweethandle = [];
 tweetdate = [];
+slurs = ' ';
 
 
 getSlurList(): void {
 
-  var select = document.getElementById("slurs");
-  var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  for (var i=0; i < slurArray.length; i++) {
-  var opt = slurArray[i];
-  var el = document.createElement("option");
-  el.textContent = opt;
-    el.value = opt;
-    select.appendChild(el);
-  }
+   //and displays the value it returns
+   this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => { 
+  this.clientHello = serverHello;
+      //console.log(serverHello);
+      this.slurs = this.clientHello.value.toString();
+    });
+
+  // var select = document.getElementById("slurs");
+  // var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  // for (var i=0; i < slurArray.length; i++) {
+  // var opt = slurArray[i];
+  // var el = document.createElement("option");
+  // el.textContent = opt;
+  //   el.value = opt;
+  //   select.appendChild(el);
+  // }
 }
 
   getHello(): void {
@@ -127,7 +135,7 @@ getSlurList(): void {
   ngOnInit() {
     this.clientHello.value = "default";
     this.clientHello._id = '00000';
-    this.getSlurList();
+    // this.getSlurList();
     //this.loadScripts();
     }
 

@@ -10,7 +10,6 @@ getQueryString = () => {
     if (i<slurBank.length-1) {
       queryString += ' OR'
     }
-
   }
   return queryString;
 }
@@ -51,6 +50,23 @@ exports.returnHello = (req, res) => {
   //res.json(serverHello);
 };
 
+exports.returnSlurs = (req, res) => {
+  //recieves a Hello and returns it
+  let serverHello = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  new Promise(function(resolve, reject) {
+
+    let statread = stats.readStatret();
+    
+    resolve(statread);
+    //console.log(statread);
+    //console.log(serverHello.value);
+
+}).then(function(value){
+  //console.log(value.Connections);
+  res.json(serverHello);
+})
+  //res.json(serverHello);
+};
 
 updateStats = () =>{
 new Promise(function(resolve, reject) {
