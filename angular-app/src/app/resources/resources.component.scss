@@ -1,11 +1,17 @@
+.component {
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 2em;
+  }
+  
+  .component h2 {
+    font-size: 2em;
+  }
+
 a {
-    color: black;
+    color: white;
     font-weight: bold;
     font-style: italic;
 }
-
-h2 {
-    text-align: center;
-    // margin-left: 5%;
-    // margin-right: -50%;
-  }
