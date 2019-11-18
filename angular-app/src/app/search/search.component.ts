@@ -23,6 +23,20 @@ tweetuser = [];
 tweethandle = [];
 tweetdate = [];
 
+embeddFixer(): void {
+  console.log('fixing tweets');
+  var twittertweets = document.getElementsByTagName("twitter-widget");
+  console.log('found ' + twittertweets.length);
+  for(var i = 0; i < twittertweets.length; i++)
+  {
+//   twittertweets[i].setAttribute("class", "tw-align-center");
+   twittertweets[i].setAttribute("style", "align-items: center;");
+//   element.style.backgroundColor = "red";
+   console.log(twittertweets[i].id);
+  }
+  console.log('done');
+}
+
   getHello(): void {
     //sends value from search bar to server
     //and displays the value it returns
@@ -96,7 +110,7 @@ tweetdate = [];
         let tweetdate = this.tweetdate[i];
         
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+        myLl.innerHTML += '<blockquote class="twitter-tweet tw-align-center " data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
 
         //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //myEl.innerHTML += "<p>"+tweet"</p></br>";
