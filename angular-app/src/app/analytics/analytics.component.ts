@@ -13,6 +13,8 @@ export class AnalyticsComponent implements OnInit {
   slurs = '';
   clientHello: Stats = new Stats();
   numSlurs = ' ';
+  //testranks = [];
+  //testranks = [{name: 'test'},{name: 'hi'}];
 
   getHello(): void {
     console.log("hi");
@@ -21,11 +23,19 @@ export class AnalyticsComponent implements OnInit {
     this.myTaskService.getstats().subscribe((serverHello: Stats) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
-      //console.log(serverHello);
+      console.log(this.clientHello);
       this.result = this.clientHello.Connections;
       this.slurs = this.clientHello.Slurs;
-      
-     
+      //let stringify = JSON.parse(this.clientHello.Ranks);
+      //console.log(this.);
+      for(var i = 0; i < this.clientHello.Ranks.length; i++) {
+        //console.log(this.clientHello.Ranks[i]);
+        let curr = this.clientHello.Ranks[i];
+        let node = document.createElement("LI");
+        let textnode = document.createTextNode("Handle:"+curr._id+" Count:"+curr.count);
+        node.appendChild(textnode);
+        document.getElementById("rankings").appendChild(node);
+      }     
     });
   }
 

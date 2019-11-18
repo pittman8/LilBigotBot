@@ -4,4 +4,5 @@ export class Stats {
      value: string;
      Connections: string;
      Slurs: string;
+     Ranks: any;
    }

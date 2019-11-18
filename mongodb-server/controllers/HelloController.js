@@ -47,7 +47,7 @@ exports.returnHello = (req, res) => {
   console.log(stringify.statuses.length);
   var slurcount = 0;
   for(var i = 0; i < stringify.statuses.length; i++) {
-    console.log(stringify.statuses[i].id);
+    //console.log(stringify.statuses[i].id);
     slurcount++;
   }
   serverHello.value.Slurs = slurcount;
@@ -79,20 +79,36 @@ new Promise(function(resolve, reject) {
   return stats.updateStatret(value);
 }).then(function(value){
   console.log(value)
+  //ReadRank();
 ;})
 
 
 };
 
+
+ReadRank = () =>{
+  new Promise(function(resolve, reject) {
+    let rankread = tweetc.listAllTweets();
+    resolve(rankread);
+  
+  }).then(function(value){
+    console.log("rankread");
+    console.log(value);
+    return value;
+  })
+  
+  
+  };
+
+
+
 updateRanking = (handle) =>{
   new Promise(function(resolve, reject) {
-    
-    
     let twhold = {
       _id: handle,
       count: 1
     };
-    console.log(twhold);
+    //console.log(twhold);
     
     let tread = tweetc.readTweet(handle);
     resolve(tread);
@@ -105,39 +121,20 @@ updateRanking = (handle) =>{
     };
     let twup = 'null';
     if(value == null){
-      console.log("beep");
-      
-      
+      //console.log("beep");
       twup = tweetc.createNewTweet(twhold);
-      
-      console.log(twhold);
-      
+      //console.log(twhold);    
     }else {
       twhold = value;
       twhold.count = twhold.count + 1;
       twup = tweetc.updateTweet(twhold);
-    };
-    
-    //twup = tweetc.updateTweet(twhold);
-    
-    if(value == null){
-      console.log("dupe");
-
-    }
+    };   
+   
     let holdval = value;
     //holdval.Connections = holdval.Connections + 1;
     //holdval.Slurs = holdval.Slurs + slurs;
-    console.log("bop");
-    console.log(value);
-    return holdval;
-  }).then(function(value){
-    
-    //console.log("why");
+    //console.log("bop");
     //console.log(value);
-    //return stats.updateStatret(value);
-  }).then(function(value){
-    //console.log(value)
-  ;})
-  
-  
+    return holdval;
+  })
   };

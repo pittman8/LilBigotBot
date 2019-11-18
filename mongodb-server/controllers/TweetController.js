@@ -4,15 +4,17 @@ const Tweet = require("../models/Tweet");
 // go to mongo and select network and allow any url to come in
 // go to azure and turn on app logging so can see console.log messages
 exports.listAllTweets = (req, res) => {
-  console.log(">>>>>>>>>>>>>> IN listAllTweets <<<<<<<<<");
+  //console.log(">>>>>>>>>>>>>> IN listAllTweets <<<<<<<<<");
+  return new Promise(function(resolve,reject){
   Tweet.find({}, (err, tweet) => {
     if (err) {
       console.log(err);
-      res.status(500).send(err);
+      resolve(err);
     }
-    res.status(200).json(tweet);
-    console.log(tweet);
+    resolve(tweet);
+    //console.log(tweet);
   });
+});
 };
 
 exports.createNewTweet = (req, res) => {
