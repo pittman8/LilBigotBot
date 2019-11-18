@@ -1,8 +1,12 @@
 .component {
+    min-width: 600px;
+    left: 0;
+    right: 0;
+    transform: scale(0.6);
     color: white;
     justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: left;
     padding-top: 2em;
   }
   
