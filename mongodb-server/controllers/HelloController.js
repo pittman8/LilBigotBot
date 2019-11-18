@@ -52,18 +52,16 @@ exports.returnHello = (req, res) => {
 
 exports.returnSlurs = (req, res) => {
   //recieves a Hello and returns it
-  let serverHello = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  new Promise(function(resolve, reject) {
-
-    let statread = stats.readStatret();
-    
-    resolve(statread);
+  let slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  new Promise(function(resolve, reject) { 
+    console.log(slurBank.toString());
+    resolve(slurBank);
     //console.log(statread);
     //console.log(serverHello.value);
 
 }).then(function(value){
   //console.log(value.Connections);
-  res.json(serverHello);
+  res.json(slurBank);
 })
   //res.json(serverHello);
 };

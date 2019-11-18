@@ -28,12 +28,11 @@
 
 <button class='btn_search' id='btn_search' (click)='getHello()'>Search</button>
 <br><br>
-<div id='slur_search'>
-    <p style="display: inline" >Click to reveal the slurs being searched {{slurs}} </p>
-    <!-- <select id = 'slurs'>
-        <option> </option>
-    </select> -->
+<div id='slur_list'>
+    <p style="display: inline"> {{slurArrayString}} </p>
 </div>
+<br>
+<button style="display: inline" (click)='getSlurList()'> Words Searched </button>
     
 <div id="calendarBox"></div>
 <div id="tweettexthold"></div>
