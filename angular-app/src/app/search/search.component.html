@@ -34,6 +34,11 @@
 <br>
 <button style="display: inline" (click)='getSlurList()'> Words Searched </button>
     
+    <div>
+        <input type="button" value="start countdown" (click)="countdown_init()" />
+        <input type="button" value="stop countdown" (click)="countdown_clear()" />
+    </div>
+    <div id="countdown_text">Placeholding text</div>
 <div id="calendarBox"></div>
 <div id="tweettexthold"></div>
 <div id="tester"></div>
