@@ -22,19 +22,29 @@ tweettext = [];
 tweetuser = [];
 tweethandle = [];
 tweetdate = [];
+slurArrayString = ' ';
 
-embeddFixer(): void {
-  console.log('fixing tweets');
-  var twittertweets = document.getElementsByTagName("twitter-widget");
-  console.log('found ' + twittertweets.length);
-  for(var i = 0; i < twittertweets.length; i++)
-  {
-//   twittertweets[i].setAttribute("class", "tw-align-center");
-   twittertweets[i].setAttribute("style", "align-items: center;");
-//   element.style.backgroundColor = "red";
-   console.log(twittertweets[i].id);
-  }
-  console.log('done');
+clear(): void {
+  document.getElementById("slur_list").innerHTML = '';
+}
+getSlurList(): void {
+
+  //  //and displays the value it returns
+  //  this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => { 
+  // this.clientHello = serverHello;
+  //     //console.log(serverHello);
+  //     this.slurs = this.clientHello.value.toString();
+  //   });
+  var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  this.slurArrayString = slurArray.join(', ');
+  setTimeout(this.clear, 10000);
+  // for (var i=0; i < slurArray.length; i++) {
+  // var opt = slurArray[i];
+  // var el = document.createElement("option");
+  // el.textContent = opt;
+  //   el.value = opt;
+  //   select.appendChild(el);
+  // }
 }
 
   getHello(): void {

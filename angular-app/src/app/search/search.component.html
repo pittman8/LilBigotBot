@@ -1,12 +1,9 @@
 <div class="component" id='component_search'>
-    
-    <!-- <label class="labels">
-        <p>@ <input [(ngModel)]="input_search">
-            <button class='btn_search' id='btn_search' (click)='getHello()'>Search</button>
-        </p>
-    </label> -->
     <hr/>
-    <p>Enter a Twitter acount to search it for slurs.</p>
+    <p>Enter a Twitter acount to search it for slurs. <span (click)='getSlurList()'>(Which slurs?)</span></p>
+    <div id='slur_list'>
+        <p style="display: inline-block"> {{slurArrayString}} </p>
+    </div>
 
     <div id="cover">
         <div class="tb">
@@ -20,7 +17,7 @@
                 </button>
             </div>
         </div>
-    </div>
+    </div>    
 
     <div id="calendarBox"></div>
     <div id="tweettexthold"></div>
