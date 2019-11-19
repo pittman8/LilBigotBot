@@ -4,83 +4,10 @@ html, body {
 }
 body {
   margin: 0; 
-  // height: 100%;
-  // overflow: hidden;
-  // background-image: linear-gradient(to bottom right, #F10087, #5E42E6);
   background: linear-gradient(to bottom, #F10087, #5E42E6);
-
-  // background-repeat: no-repeat;
-//  background: rgb(245, 185, 230); 
-  //background: linear-gradient(145deg, rgba(245,185,230,1) 0%, rgba(185,100,210,1) 17%, rgba(115,15,170,1) 100%); 
-//font-family: Roboto, "Helvetica Neue", sans-serif; 
-    font-family: 'Josefin Sans', sans-serif;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
  * {
    color: white;
  }
-
-// .flex-container {
-//   display: flex;
-//   background: red; /* For browsers that do not support gradients */
-//   background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-//   background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-//   background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-//   background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-//   text-decoration: none;
-//   flex: 1 1 auto;
-//   justify-content: center;
-//   font-size: 20px;
-//   text-shadow: 2px 2px #000000;
-// }
-
-// h1 {
-//   background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-//   background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-//   color:transparent;
-//   -webkit-background-clip: text;
-//   background-clip: text;
-
-// }
-
-// nav a {
-//     padding: 5px 10px;
-//     text-decoration: none;
-//     margin-top: 10px;
-//     // background-color: #eee;
-//     border-radius: 4px;
-//     background: red; /* For browsers that do not support gradients */
-//     background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-//     background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-//     background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-//     background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-//   }
-//   nav a:visited, a:link {
-//  //   color: #607d8b;
-//     background: red; /* For browsers that do not support gradients */
-//     background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-//     background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-//     background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-//     background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-
-//     text-decoration: none;
-//   }
-//   nav a:hover {
-//    // color: #039be5;
-//    // background-color: #cfd8dc;
-//    background: red; /* For browsers that do not support gradients */
-//    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-//    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-//    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-//    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-
-//   }
-//   nav a.active {
-//     //color: #039be5;
-//     background: red; /* For browsers that do not support gradients */
-//     background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-//     background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-//     background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-//     background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
- 
-//   }
