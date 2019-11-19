@@ -2,9 +2,9 @@ const Hello = require("../models/Hello");
 const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 const tweetc = require("./TweetController");
-
+const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite'];
 getQueryString = () => {
-  const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  //const slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite'];
   let queryString = '';
   for (i=0;i<slurBank.length; i++) {
     queryString += ' ' + slurBank[i]
@@ -79,12 +79,10 @@ new Promise(function(resolve, reject) {
   return stats.updateStatret(value);
 }).then(function(value){
   console.log(value)
-  //ReadRank();
 ;})
 
 
 };
-
 
 ReadRank = () =>{
   new Promise(function(resolve, reject) {
@@ -96,8 +94,6 @@ ReadRank = () =>{
     console.log(value);
     return value;
   })
-  
-  
   };
 
 
@@ -131,10 +127,27 @@ updateRanking = (handle) =>{
     };   
    
     let holdval = value;
-    //holdval.Connections = holdval.Connections + 1;
-    //holdval.Slurs = holdval.Slurs + slurs;
     //console.log("bop");
     //console.log(value);
     return holdval;
   })
+  };
+
+  exports.returnSlurs = (req, res) => {
+    //let slurBank = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+    /*new Promise(function(resolve, reject) { 
+      //console.log(slurBank.toString());
+      resolve(slurBank);
+  }).then(function(value){
+    let returnhold = {
+      slurs: value
+    };
+    res.json(returnhold);
+  })*/
+
+  let returnhold = {
+    slurs: slurBank
+  };
+  
+  res.json(returnhold);
   };

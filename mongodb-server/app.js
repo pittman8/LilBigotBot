@@ -57,6 +57,9 @@ app
   .route("/analytics")
   .get(AnalyticsController.returnconn)
 app
+  .route("/slurs")
+  .get(helloController.returnSlurs);
+app
   .route("/tweets/:tweetid")
   .get(tweetController.readTweet)
   .put(tweetController.updateTweet)
