@@ -1,22 +1,196 @@
 .component {
+  color: white;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  position: absolute;
+  padding-top: 2em;
 }
 
-.btn_search {
-    background: red; /* For browsers that do not support gradients */
-    background: -webkit-linear-gradient(left, orange , yellow, green, cyan, blue, violet); /* For Safari 5.1 to 6.0 */
-    background: -o-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Opera 11.1 to 12.0 */
-    background: -moz-linear-gradient(right, orange, yellow, green, cyan, blue, violet); /* For Firefox 3.6 to 15 */
-    background: linear-gradient(to right, orange , yellow, green, cyan, blue, violet);
-    border-radius: 40px;
-    font-weight: bold;
+.component h2 {
+  font-size: 2em;
 }
 
-h2 {
-    background-image: -webkit-gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    background-image: gradient( linear, left top, right top, color-stop(0, #f22), color-stop(0.15, #f2f), color-stop(0.3, #22f), color-stop(0.45, #2ff), color-stop(0.6, #2f2),color-stop(0.75, #2f2), color-stop(0.9, #ff2), color-stop(1, #f22) );
-    color:transparent;
-    -webkit-background-clip: text;
-    background-clip: text;
+// #output_text {
+    // display: flex;
+    // flex-direction: columns;
+    // margin: 0 auto;
+// }
+
+// .fixer {
+//     // left: 0;
+//     // right: 0;
+//     // transform: scale(0.6);
+//     min-width: 550px;
+//     margin: 0 auto;
+//     // justify-content: center;
+//     // align-items: center;
+//     border: 5px solid blue;
+// }
+
+.twitter-tweet {
+    border: 5px solid blue;
+
+//     margin: 0 auto;
+//         justify-content: center;
+//     align-items: center;
+}
+
+//everything that follows is for the fancy search bar
+//mostly stolen from 
+//https://codepen.io/himalayasingh/pen/dqjLgO
+
+#cover
+{
+    // position: absolute;
+    // top: 50%;
+    left: 0;
+    right: 0;
+    transform: scale(0.6);
+    min-width: 550px;
+    padding: 5px 35px;
+    margin: 0 auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px #ffffff, 0 0 0 20px #ffffff;
+    transform: scale(0.6);
+}
+
+#cover p {
+    width: 100%;
+    font-size: 60px;
+    line-height: 1;
+    text-align: left;
+}
+
+#cover input {
+    font-size: 60px;
+}
+
+#cover button
+{
+    position: relative;
+    display: block;
+    width: 84px;
+    height: 96px;
+    cursor: pointer;
+}
+
+.tb
+{
+    display: table;
+    width: 100%;
+}
+
+.td
+{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+input, button
+{
+    color: #fff;
+    font-family: Nunito;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+}
+
+form
+{
+    height: 96px;
+}
+
+input[type="text"]
+{
+    width: 100%;
+    height: 96px;
+    font-size: 60px;
+    line-height: 1;
+}
+
+#s-cover
+{
+    width: 1px;
+    padding-left: 35px;
+}
+
+#s-circle
+{
+    position: relative;
+    top: -8px;
+    left: 0;
+    width: 43px;
+    height: 43px;
+    margin-top: 0;
+    border-width: 15px;
+    border: 15px solid #fff;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+}
+
+button span
+{
+    position: absolute;
+    top: 68px;
+    left: 43px;
+    display: block;
+    width: 45px;
+    height: 15px;
+    background-color: transparent;
+    border-radius: 10px;
+    transform: rotateZ(52deg);
+    transition: 0.5s ease all;
+}
+
+button span:before, button span:after
+{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: #fff;
+    border-radius: 10px;
+    transform: rotateZ(0);
+    transition: 0.5s ease all;
+}
+
+#s-cover:hover #s-circle
+{
+    top: -1px;
+    width: 67px;
+    height: 15px;
+    border-width: 0;
+    background-color: #fff;
+    border-radius: 20px;
+}
+
+#s-cover:hover span
+{
+    top: 50%;
+    left: 56px;
+    width: 25px;
+    margin-top: -9px;
+    transform: rotateZ(0);
+}
+
+#s-cover:hover button span:before
+{
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+
+#s-cover:hover button span:after
+{
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+#s-cover:hover button span:before, #s-cover:hover button span:after
+{
+    right: -6px;
+    width: 40px;
+    background-color: #fff;
 }

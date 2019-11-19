@@ -38,7 +38,7 @@ getSlurList(): void {
   //   });
   var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
   this.slurArrayString = slurArray.join(', ');
-  setTimeout(this.clear, 5000);
+  setTimeout(this.clear, 10000);
   // for (var i=0; i < slurArray.length; i++) {
   // var opt = slurArray[i];
   // var el = document.createElement("option");
@@ -63,7 +63,7 @@ getSlurList(): void {
       }
       //console.log(serverHello.value);
       var stringify = JSON.parse(serverHello.value);
-      // console.log(stringify);
+      console.log(stringify);
      //  console.log(stringify.statuses[0].id);
        //console.log(stringify.statuses.length);
       this.tweetIds = [];
@@ -95,23 +95,6 @@ getSlurList(): void {
      
       myLl.innerHTML = "";
 
-      for(var i = 0; i < this.tweettext.length; i++){
-        let tweetelement = this.tweettext[i];
-        
-        
-        //myTl.innerHTML += "<p>"+tweetelement+"</p></br>";
-        //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-        //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-     }
-
-     for(var i = 0; i < this.tweettext.length; i++){
-      let tweetelement = this.tweettext[i];
-      
-      
-      //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweetelement+'</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
-      //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-      //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-   }
 
 
      for(var i = 0; i < this.tweetIds.length; i++){
@@ -122,7 +105,7 @@ getSlurList(): void {
         let tweetdate = this.tweetdate[i];
         
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+        myLl.innerHTML += '<blockquote class="twitter-tweet tw-align-center " data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
 
         //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
         //myEl.innerHTML += "<p>"+tweet"</p></br>";
