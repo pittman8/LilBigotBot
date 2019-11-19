@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelloService } from '../hello.service';
+import { SlursService } from '../slurs.service';
 import { Hello } from '../Hello';
+import {Slurs} from '../slurs';
 import { NgxTweetModule } from "ngx-tweet";
 
 declare var twttr;
@@ -23,21 +25,16 @@ tweetuser = [];
 tweethandle = [];
 tweetdate = [];
 slurArrayString = ' ';
+slurshold: Slurs = new Slurs();
 
 clear(): void {
   document.getElementById("slur_list").innerHTML = '';
+  //console.log("clear");
 }
 getSlurList(): void {
-
-  //  //and displays the value it returns
-  //  this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => { 
-  // this.clientHello = serverHello;
-  //     //console.log(serverHello);
-  //     this.slurs = this.clientHello.value.toString();
-  //   });
-  var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  this.slurArrayString = slurArray.join(', ');
-  setTimeout(this.clear, 10000);
+  //var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
+  //this.slurArrayString = slurArray.join(', ');
+  //setTimeout(this.clear, 10000); 
   // for (var i=0; i < slurArray.length; i++) {
   // var opt = slurArray[i];
   // var el = document.createElement("option");
@@ -45,20 +42,25 @@ getSlurList(): void {
   //   el.value = opt;
   //   select.appendChild(el);
   // }
+  let slursub = this.mySlurService.getslurs().subscribe((serverHello: Slurs) => {
+    this.slurshold = serverHello;
+    this.slurArrayString = this.slurshold.slurs.join(', ');
+  });
+  //console.log("load");
+  //Unsure if unsubscribe needed
+  //setTimeout(() => {this.clear(); slursub.unsubscribe(); console.log("bep")},10000)
+  setTimeout(this.clear, 10000);
 }
 
   getHello(): void {
     //sends value from search bar to server
     //and displays the value it returns
     this.clientHello.value = this.input_search;
-    this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
+    let hellosubscription = this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
       console.log(serverHello.value);
       //this.result = this.clientHello.value;
-      for (var i = 0; i < this.result.length; i++) {
-        
-      }
       //console.log(serverHello.value);
       var stringify = JSON.parse(serverHello.value);
       console.log(stringify);
@@ -81,20 +83,17 @@ getSlurList(): void {
       //  for(var i = 0; i < this.theIds.length; i++) {
       //     this.tweetIds.push(this.theIds[i]);
       //  }
-       console.log(this.tweetIds);
+       //console.log(this.tweetIds);
       //this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
       //this.embedded = this.idArray[0];
 
-      var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
-      var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
+      //var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
+      //var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
       //var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
       var myLl = /* angular.element( */ document.querySelector( '#output_text' ) /* ) */;
      
       myLl.innerHTML = "";
-
-
-
      for(var i = 0; i < this.tweetIds.length; i++){
         let tweetelement = this.tweetIds[i];
         let tweettexts = this.tweettext[i];
@@ -112,10 +111,13 @@ getSlurList(): void {
         
      }
      twttr.widgets.load();
+     
     });
+    //Is this needed? Not sure. If issues with searching multiple times. uncomment below
+    //setTimeout(() => { hellosubscription.unsubscribe(); }, 10000);
   }
 
-  constructor(private myTaskService: HelloService, private router: Router,) { }
+  constructor(private myTaskService: HelloService, private router: Router,private mySlurService: SlursService,) { }
 
   ngOnInit() {
     this.clientHello.value = "default";
@@ -126,19 +128,6 @@ getSlurList(): void {
     ngAfterViewInit(): void {
       // @ts-ignore
       //twttr.widgets.load();
-  }
-
-  
-  ngDoCheck(): void {
-    //console.log("tzeench");
-    //twttr.widgets.load();
-    //this.loadScripts();
-  }
-  
-  ngOnChanges() {
-    
-    //console.log("tzeench");
-    
   }
 
 }
