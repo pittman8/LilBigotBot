@@ -29,16 +29,10 @@
 <button class='btn_search' id='btn_search' (click)='getHello()'>Search</button>
 <br><br>
 <div id='slur_list'>
-    <p style="display: inline"> {{slurArrayString}} </p>
+    <p style="display: inline-block"> {{slurArrayString}} </p>
 </div>
-<br>
-<button style="display: inline" (click)='getSlurList()'> Words Searched </button>
-    
-    <div>
-        <input type="button" value="start countdown" (click)="countdown_init()" />
-        <input type="button" value="stop countdown" (click)="countdown_clear()" />
-    </div>
-    <div id="countdown_text">Placeholding text</div>
+<button style="display: inline-block" (click)='getSlurList()'> Words Searched </button>
+
 <div id="calendarBox"></div>
 <div id="tweettexthold"></div>
 <div id="tester"></div>

@@ -24,28 +24,6 @@ tweethandle = [];
 tweetdate = [];
 slurArrayString = ' ';
 
-    countdown = "";
-    countdown_number = 0;
-    
-    function countdown_init() {
-        this.countdown_number = 11;
-        countdown_trigger();
-    }
-    
-    function countdown_trigger() {
-        if(this.countdown_number > 0) {
-            this.countdown_number--;
-            document.getElementById('countdown_text').innerHTML = this.countdown_number;
-            if(this.countdown_number > 0) {
-                this.countdown = setTimeout('countdown_trigger()', 1000);
-            }
-        }
-    }
-    
-    function countdown_clear() {
-        clearTimeout(this.countdown);
-    }
-  
 
 clear(): void {
   document.getElementById("slur_list").innerHTML = '';
@@ -59,7 +37,7 @@ getSlurList(): void {
   //     this.slurs = this.clientHello.value.toString();
   //   });
   var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  this.slurArrayString = slurArray.toString();
+  this.slurArrayString = slurArray.join(', ');
   setTimeout(this.clear, 5000);
   // for (var i=0; i < slurArray.length; i++) {
   // var opt = slurArray[i];
