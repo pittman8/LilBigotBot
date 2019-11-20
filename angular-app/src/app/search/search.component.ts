@@ -28,8 +28,7 @@ slurArrayString = ' ';
 slurshold: Slurs = new Slurs();
 
 clear(): void {
-  document.getElementById("slur_list").innerHTML = '';
-  //console.log("clear");
+  this.slurArrayString = "";
 }
 getSlurList(): void {
   //var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
@@ -46,10 +45,11 @@ getSlurList(): void {
     this.slurshold = serverHello;
     this.slurArrayString = this.slurshold.slurs.join(', ');
   });
-  //console.log("load");
   //Unsure if unsubscribe needed
   //setTimeout(() => {this.clear(); slursub.unsubscribe(); console.log("bep")},10000)
-  setTimeout(this.clear, 10000);
+  setTimeout(function() {
+    this.clear();
+  }.bind(this), 5000);
 }
 
   getHello(): void {
