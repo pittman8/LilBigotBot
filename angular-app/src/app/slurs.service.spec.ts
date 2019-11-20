@@ -1,9 +1,18 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed, async } from '@angular/core/testing';
 
 import { SlursService } from './slurs.service';
 
+import { HttpClientModule }    from '@angular/common/http';
+
 describe('SlursService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ ],
+      imports: [ HttpClientModule ]
+    });
+    TestBed.compileComponents();
+    // .compileComponents();
+  }));
 
   it('should be created', () => {
     const service: SlursService = TestBed.get(SlursService);
