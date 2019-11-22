@@ -8,7 +8,7 @@
     <div id="cover">
         <div class="tb">
             <div class="td">
-                <p>@ <input [(ngModel)]="input_search"></p>
+                <p>@ <input [(ngModel)]="input_search" (keyup.enter)="getHello()"></p>
             </div>
             <div class="td" id="s-cover">
                 <button class='btn_search' id='btn_search' (click)='getHello()'>

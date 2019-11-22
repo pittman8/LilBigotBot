@@ -59,7 +59,6 @@ exports.returnHello = (req, res) => {
   //res.json(serverHello);
 };
 
-
 updateStats = (slurs) =>{
 new Promise(function(resolve, reject) {
   let statread = stats.readStatret();
