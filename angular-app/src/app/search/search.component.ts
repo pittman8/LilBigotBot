@@ -14,7 +14,7 @@ declare var twttr;
 })
 
 export class SearchComponent implements OnInit {
-  input_search = 'realdonaldtrump';
+  input_search = 'mitches2000';
   result = 'Output holder';
   clientHello: Hello = new Hello();
   IdArray = [];
