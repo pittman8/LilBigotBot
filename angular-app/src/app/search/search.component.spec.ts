@@ -42,4 +42,30 @@ describe('SearchComponent', () => {
       expect(component.getHello).toHaveBeenCalled();
     });
   }));
+
+  it('should click slur button', async(() => {
+    spyOn(component, 'getSlurList');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('#slurlink');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.getSlurList).toHaveBeenCalled();
+    });
+  }));
+
+  it('should check that slur list is displayed', async(() => {
+    let slurstring = "hello, test"
+  
+    component.slurArrayString = slurstring;
+    
+    let list = fixture.debugElement.nativeElement.querySelector('#slurstrings');
+
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(list.textContent.trim()).toBe(slurstring )
+    });
+  }));
+
+
 });
