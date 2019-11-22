@@ -1,8 +1,8 @@
 <div class="component" id='component_search'>
     <hr/>
-    <p>Enter a Twitter acount to search it for slurs. <span (click)='getSlurList()'>(Which slurs?)</span></p>
+    <p>Enter a Twitter acount to search it for slurs. <span id='slurlink' (click)='getSlurList()'>(Which slurs?)</span></p>
     <div id='slur_list'>
-        <p style="display: inline-block"> {{slurArrayString}} </p>
+        <p id ='slurstrings' style="display: inline-block"> {{slurArrayString}} </p>
     </div>
 
     <div id="cover">
