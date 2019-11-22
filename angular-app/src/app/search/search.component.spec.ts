@@ -28,7 +28,18 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should click search button', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should', async(() => {
+    spyOn(component, 'getHello');
+  
+    let button = fixture.debugElement.nativeElement.querySelector('button');
+    button.click();
+  
+    fixture.whenStable().then(() => {
+      expect(component.getHello).toHaveBeenCalled();
+    });
+  }));
 });
