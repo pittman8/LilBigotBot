@@ -16,8 +16,8 @@ export class AnalyticsService {
   constructor(private http: HttpClient) {}
 
   getstats(): Observable<Stats> {    
-    //return  this.http.get<Stats>('http://localhost:80/analytics');
-    return  this.http.get<Stats>('https://bigotbotserver.azurewebsites.net/analytics');
+    return  this.http.get<Stats>('http://localhost:80/analytics');
+    //return  this.http.get<Stats>('https://bigotbotserver.azurewebsites.net/analytics');
   }
 }
 
