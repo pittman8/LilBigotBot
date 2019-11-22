@@ -59,6 +59,7 @@ getSlurList(): void {
     let hellosubscription = this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
+      console.log("val2");
       console.log(serverHello.value);
       //this.result = this.clientHello.value;
       //console.log(serverHello.value);
