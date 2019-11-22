@@ -31,24 +31,14 @@ clear(): void {
   this.slurArrayString = "";
 }
 getSlurList(): void {
-  //var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  //this.slurArrayString = slurArray.join(', ');
-  //setTimeout(this.clear, 10000); 
-  // for (var i=0; i < slurArray.length; i++) {
-  // var opt = slurArray[i];
-  // var el = document.createElement("option");
-  // el.textContent = opt;
-  //   el.value = opt;
-  //   select.appendChild(el);
-  // }
   let slursub = this.mySlurService.getslurs().subscribe((serverHello: Slurs) => {
     this.slurshold = serverHello;
     this.slurArrayString = this.slurshold.slurs.join(', ');
   });
   //Unsure if unsubscribe needed
-  //setTimeout(() => {this.clear(); slursub.unsubscribe(); console.log("bep")},10000)
   setTimeout(function() {
     this.clear();
+    //slursub.unsubscribe();
   }.bind(this), 5000);
 }
 
@@ -59,9 +49,7 @@ getSlurList(): void {
     let hellosubscription = this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
       //this stuff is asynchronous
       this.clientHello = serverHello;
-      console.log("val2");
-      console.log(serverHello.value);
-      //this.result = this.clientHello.value;
+      //console.log(serverHello.value);
       //console.log(serverHello.value);
       var stringify = JSON.parse(serverHello.value);
       console.log(stringify);
@@ -80,37 +68,28 @@ getSlurList(): void {
          this.tweethandle.push(stringify.statuses[i].user.screen_name);
          this.tweetdate.push(stringify.statuses[i].created_at);
        }
-      //  console.log(this.theIds);
-      //  for(var i = 0; i < this.theIds.length; i++) {
-      //     this.tweetIds.push(this.theIds[i]);
-      //  }
        //console.log(this.tweetIds);
       //this.result = this.clientHello.value;
       this.numSlurs = this.tweetIds.length.toString();
-      //this.embedded = this.idArray[0];
-
-      //var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
-      //var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
-      //var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
-      var myLl = /* angular.element( */ document.querySelector( '#output_text' ) /* ) */;
+      var myLl = document.querySelector( '#output_text' ) /* ) */;
      
       myLl.innerHTML = "";
-     for(var i = 0; i < this.tweetIds.length; i++){
-        let tweetelement = this.tweetIds[i];
-        let tweettexts = this.tweettext[i];
-        let tweetuser = this.tweetuser[i];
-        let tweethandle = this.tweethandle[i];
-        let tweetdate = this.tweetdate[i];
-        
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet tw-align-center " data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+       if(stringify.statuses.length > 0){
+        for(var i = 0; i < this.tweetIds.length; i++){
+          let tweetelement = this.tweetIds[i];
+          let tweettexts = this.tweettext[i];
+          let tweetuser = this.tweetuser[i];
+          let tweethandle = this.tweethandle[i];
+          let tweetdate = this.tweetdate[i];
 
-        //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
-        //myEl.innerHTML += "<p>"+tweet"</p></br>";
-        //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-        //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-        
-     }
+          myLl.innerHTML += '<blockquote class="twitter-tweet tw-align-center " data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+
+       }
+
+       }else{
+        myLl.innerHTML = '<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">This user is a good doobie.</p>&mdash; Lil&#39; Bigot Bot (@HomophobeHunter) <a href="https://twitter.com/HomophobeHunter/status/1197706918564745216?ref_src=twsrc%5Etfw">November 22, 2019</a></blockquote>';
+       }
      twttr.widgets.load();
      
     });
