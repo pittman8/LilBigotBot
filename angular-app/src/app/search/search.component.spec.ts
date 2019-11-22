@@ -28,11 +28,11 @@ describe('SearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should click search button', () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should', async(() => {
+  it('should click search button', async(() => {
     spyOn(component, 'getHello');
   
     let button = fixture.debugElement.nativeElement.querySelector('button');
