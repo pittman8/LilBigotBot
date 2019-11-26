@@ -1,15 +1,22 @@
-<div class="component" id='component_search'>
-    <p>Search an account's post history</p>
-    
-    <div>
-        <label class="labels">
-            @: <input [(ngModel)]="input_search">
-        </label>
+<div class="component" id='component_search'>    
+    <p>Enter a Twitter acount to search it for slurs. (<span class='underline' id='slurlink'>Which slurs?</span>)</p>
+    <div id='slur_list'>
+        <p id ='slurstrings' style="display: inline-block"> {{slurArrayString}} </p>
     </div>
-    
-    <button id='btn_search' (click)='startSearch()'>Search</button>      
-    
+
+    <div id="searchBar">
+            <p>@
+                <input id="search_input" class='pretty' [(ngModel)]="input_search" (keyup.enter)="getHello()">
+                <button id='btn_search' (click)='getHello()'>
+                    <a><span>&#9906;</span></a>
+                </button>
+            </p>
+    </div>
+
     <div id='output_search'>
-        <p>{{result}}</p>
+        <p>Number of times this user slurred in the past week: {{numSlurs}}</p>
+        <!-- <pre><br><br></pre> -->
+        <div id='output_text'>{{result}}</div>
     </div>
+
 </div>
