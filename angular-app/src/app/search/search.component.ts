@@ -13,7 +13,7 @@ declare var twttr;
 })
 
 export class SearchComponent implements OnInit {
-  input_search = '';
+  input_search = 'Enter a username';
   result = '';
   clientHello: Hello = new Hello();
   IdArray = [];
@@ -104,9 +104,15 @@ export class SearchComponent implements OnInit {
     //this.loadScripts();
 //    var myLl = document.querySelector('#output_text') /* ) */;
 //    document.getElementById('slurlink').addEventListener ("click", this.getSlurList(), false);
-document.getElementById('slurlink').addEventListener("click", event => {
-  this.getSlurList();
-});
+    document.getElementById('slurlink').addEventListener("click", event => {
+      this.getSlurList();
+    });
+    document.getElementById('search_input').addEventListener("focus", event => {
+      this.input_search='';
+    });
+    document.getElementById('search_input').addEventListener("blur", event => {
+      this.input_search='Enter a username';
+    });
   }
 
   ngAfterViewInit(): void {

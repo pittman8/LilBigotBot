@@ -6,8 +6,8 @@
 
     <div id="searchBar">
             <p>@
-                <input class='pretty' [(ngModel)]="input_search" (keyup.enter)="getHello()">
-                <button id='btn_search2' (click)='getHello()'>
+                <input id="search_input" class='pretty' [(ngModel)]="input_search" (keyup.enter)="getHello()">
+                <button id='btn_search' (click)='getHello()'>
                     <a><span>&#9906;</span></a>
                 </button>
             </p>

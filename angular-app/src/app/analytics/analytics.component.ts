@@ -32,7 +32,7 @@ export class AnalyticsComponent implements OnInit {
         //console.log(this.clientHello.Ranks[i]);
         let curr = this.clientHello.Ranks[i];
         let node = document.createElement("LI");
-        let textnode = document.createTextNode("Handle:"+curr._id+" Count:"+curr.count);
+        let textnode = document.createTextNode(curr._id+" was search "+curr.count+" times");
         node.appendChild(textnode);
         document.getElementById("rankings").appendChild(node);
       }     
