@@ -13,8 +13,8 @@ declare var twttr;
 })
 
 export class SearchComponent implements OnInit {
-  input_search = 'mitches2000';
-  result = 'Output holder';
+  input_search = '';
+  result = '';
   clientHello: Hello = new Hello();
   IdArray = [];
   numSlurs = ' ';
@@ -102,6 +102,11 @@ export class SearchComponent implements OnInit {
     this.clientHello.value = "default";
     this.clientHello._id = '00000';
     //this.loadScripts();
+//    var myLl = document.querySelector('#output_text') /* ) */;
+//    document.getElementById('slurlink').addEventListener ("click", this.getSlurList(), false);
+document.getElementById('slurlink').addEventListener("click", event => {
+  this.getSlurList();
+});
   }
 
   ngAfterViewInit(): void {

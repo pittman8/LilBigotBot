@@ -1,16 +1,31 @@
-.header {
+#app {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#header {
   color: white;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.header h1 {
-  font-size: 2em;
+#header h1 {
+  font-size: 8vw;
   text-decoration: underline; 
+  margin-bottom: 0px;
 }
 
-.header a {
+#header span {
+  color: black;
+}
+
+#header a {
   color: white;
   padding: 1em;
+  font-size: 2vw;
+}
+
+#header hr {
+  margin: 2em 0px 0px;
 }

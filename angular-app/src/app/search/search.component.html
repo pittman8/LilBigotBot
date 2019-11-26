@@ -1,27 +1,17 @@
-<div class="component" id='component_search'>
-    <hr/>
-    <p>Enter a Twitter acount to search it for slurs. <span id='slurlink' (click)='getSlurList()'>(Which slurs?)</span></p>
+<div class="component" id='component_search'>    
+    <p>Enter a Twitter acount to search it for slurs. (<span class='underline' id='slurlink'>Which slurs?</span>)</p>
     <div id='slur_list'>
         <p id ='slurstrings' style="display: inline-block"> {{slurArrayString}} </p>
     </div>
 
-    <div id="cover">
-        <div class="tb">
-            <div class="td">
-                <p>@ <input [(ngModel)]="input_search" (keyup.enter)="getHello()"></p>
-            </div>
-            <div class="td" id="s-cover">
-                <button class='btn_search' id='btn_search' (click)='getHello()'>
-                    <div id="s-circle"></div>
-                    <span></span>        
+    <div id="searchBar">
+            <p>@
+                <input class='pretty' [(ngModel)]="input_search" (keyup.enter)="getHello()">
+                <button id='btn_search2' (click)='getHello()'>
+                    <a><span>&#9906;</span></a>
                 </button>
-            </div>
-        </div>
-    </div>    
-
-    <div id="calendarBox"></div>
-    <div id="tweettexthold"></div>
-    <div id="tester"></div>
+            </p>
+    </div>
 
     <div id='output_search'>
         <p>Number of times this user slurred in the past week: {{numSlurs}}</p>

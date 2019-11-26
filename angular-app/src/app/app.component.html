@@ -17,19 +17,21 @@
     </mat-toolbar-row>
   </mat-toolbar>
 </div> -->
-
-<div class='header'>    
+<div id='app'>
+<div id='header'>    
       <a [routerLink]="'/'">
-        <h1>Homophobe Hunter</h1>
+        <h1>Homophobe <span>Hunter</span></h1>
       </a>
       
       <div class="flex-container">
         <a [routerLink]="'/search'">Search</a>
-        <a>&#9898;</a>
+        <a><span>&#9898;</span></a>
         <a [routerLink]="'/analytics'">Analytics</a>
-        <a>&#9898;</a>
+        <a><span>&#9898;</span></a>
         <a [routerLink]="'/resources'">Resources</a>
       </div>
+      <hr/>
 </div>
  
 <router-outlet></router-outlet>
+</div>
