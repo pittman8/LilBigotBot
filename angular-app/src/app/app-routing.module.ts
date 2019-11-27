@@ -6,8 +6,7 @@ import { SearchComponent } from './search/search.component';
 import { AnalyticsComponent } from './analytics/analytics.component';
 
 const myRoutes: Routes = [
-  { path: '', component: SearchComponent },
-  { path: 'search', component: SearchComponent },
+ { path: 'search', component: SearchComponent },
  { path: 'analytics', component: AnalyticsComponent },
  { path: 'resources', component: ResourcesComponent }
 ];
