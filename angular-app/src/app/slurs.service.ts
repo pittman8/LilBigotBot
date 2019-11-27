@@ -17,7 +17,7 @@ export class SlursService {
   constructor(private http: HttpClient) {}
 
   getslurs(): Observable<Slurs> {    
-    return  this.http.get<Slurs>('http://localhost:80/slurs');
-    //return  this.http.get<Slurs>('https://bigotbotserver.azurewebsites.net/slurs');
+    //return  this.http.get<Slurs>('http://localhost:80/slurs');
+    return  this.http.get<Slurs>('https://bigotbotserver.azurewebsites.net/slurs');
   }
 }
