@@ -1,37 +1,15 @@
-<!-- <div class='header'>    
-  <mat-toolbar>
-    <mat-toolbar-row>
-      <a mat-button [routerLink]="'/'">
-        <h1>Homophobe Hunter</h1>
-      </a>      
-    </mat-toolbar-row>
+<div style="text-align:center">
+  <nav>
+    <a routerLink="/">Home</a>
+    <a routerLink="/search">Search</a>
+    <a routerLink="/analytics">Analytics</a>
+    <a routerLink="/resources">Resources</a>
+  </nav>
+
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
   
-    <mat-toolbar-row>
-      <div class="flex-container">
-        <a mat-button [routerLink]="'/search'">Search</a>
-        <a>&#9898;</a>
-        <a mat-button [routerLink]="'/analytics'">Analytics</a>
-        <a>&#9898;</a>
-        <a mat-button [routerLink]="'/resources'">Resources</a>
-      </div>
-    </mat-toolbar-row>
-  </mat-toolbar>
-</div> -->
-<div id='app'>
-<div id='header'>    
-      <a [routerLink]="'/'">
-        <h1>Homophobe <span>Hunter</span></h1>
-      </a>
-      
-      <div class="flex-container">
-        <a [routerLink]="'/search'">Search</a>
-        <a><span>&#9898;</span></a>
-        <a [routerLink]="'/analytics'">Analytics</a>
-        <a><span>&#9898;</span></a>
-        <a [routerLink]="'/resources'">Resources</a>
-      </div>
-      <hr/>
-</div>
+  <router-outlet></router-outlet>
  
-<router-outlet></router-outlet>
 </div>
