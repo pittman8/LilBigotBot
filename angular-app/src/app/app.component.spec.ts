@@ -27,6 +27,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('.header').textContent).toContain('Homophobe Hunter');
+    expect(compiled.querySelector('#header').textContent).toContain('Homophobe Hunter');
   });
 });
