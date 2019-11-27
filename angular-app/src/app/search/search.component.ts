@@ -110,9 +110,9 @@ export class SearchComponent implements OnInit {
     document.getElementById('search_input').addEventListener("focus", event => {
       this.input_search='';
     });
-    document.getElementById('search_input').addEventListener("blur", event => {
-      this.input_search='Enter a username';
-    });
+    // document.getElementById('search_input').addEventListener("blur", event => {
+    //   this.input_search='Enter a username';
+    // });
   }
 
   ngAfterViewInit(): void {
