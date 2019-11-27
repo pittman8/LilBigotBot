@@ -1,17 +1,20 @@
 .component {
-    min-width: 600px;
-    left: 0;
-    right: 0;
-    transform: scale(0.6);
-    color: white;
-    justify-content: center;
-    align-items: center;
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 2em;
+  }
+
+  #component_resources {
+    width: 50%;
+    margin: 0 auto;
     text-align: left;
-    padding-top: 2em;
+    font-size: 2vw;
   }
   
   .component h2 {
-    font-size: 2em;
+    font-size: 2vw;
   }
 
 a {
@@ -19,3 +22,4 @@ a {
     font-weight: bold;
     font-style: italic;
 }
+
