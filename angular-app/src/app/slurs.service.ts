@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Slurs } from './slurs';
 
-export interface Slurs {   // I have no idea what this does!!!
+export interface Slurs {
   _id: String;
  value: string;
 }
