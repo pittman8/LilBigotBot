@@ -1,8 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { HelloService } from '../hello.service';
+import { SlursService } from '../slurs.service';
 import { Hello } from '../Hello';
-import { NgxTweetModule } from "ngx-tweet";
+import { Slurs } from '../slurs';
 
 declare var twttr;
 @Component({
@@ -12,152 +13,125 @@ declare var twttr;
 })
 
 export class SearchComponent implements OnInit {
-  input_search = 'realdonaldtrump';
-  result = 'Output holder';
+  input_search = 'Enter a username';
   clientHello: Hello = new Hello();
-  IdArray = [];
+  slurshold: Slurs = new Slurs();
+  result = '';
   numSlurs = ' ';
-tweetIds = [];
-tweettext = [];
-tweetuser = [];
-tweethandle = [];
-tweetdate = [];
-slurArrayString = ' ';
-
-
-clear(): void {
-  document.getElementById("slur_list").innerHTML = '';
-}
-getSlurList(): void {
-
-  //  //and displays the value it returns
-  //  this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => { 
-  // this.clientHello = serverHello;
-  //     //console.log(serverHello);
-  //     this.slurs = this.clientHello.value.toString();
-  //   });
-  var slurArray = ['fag', 'faggot', 'dyke', 'homo', 'sodomite', 'great'];
-  this.slurArrayString = slurArray.join(', ');
-  setTimeout(this.clear, 5000);
-  // for (var i=0; i < slurArray.length; i++) {
-  // var opt = slurArray[i];
-  // var el = document.createElement("option");
-  // el.textContent = opt;
-  //   el.value = opt;
-  //   select.appendChild(el);
-  // }
-}
-
+  slurArrayString = ' ';
+  IdArray = [];
+  tweetIds = [];
+  tweettext = [];
+  tweetuser = [];
+  tweethandle = [];
+  tweetdate = [];
 
   getHello(): void {
     //sends value from search bar to server
     //and displays the value it returns
+    //Uses the Hello data type
+    // class Hello {
+    //   _id: String;
+    //    value: string;
+    //    tweetid: string
+    //  }
+
     this.clientHello.value = this.input_search;
-    this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {      
+
+    let hellosubscription = this.myTaskService.sayHello(this.clientHello).subscribe((serverHello: Hello) => {
       //this stuff is asynchronous
+    
       this.clientHello = serverHello;
-      console.log(serverHello.value);
-      //this.result = this.clientHello.value;
-      for (var i = 0; i < this.result.length; i++) {
-        
-      }
-      //console.log(serverHello.value);
-      var stringify = JSON.parse(serverHello.value);
-      // console.log(stringify);
-     //  console.log(stringify.statuses[0].id);
-       //console.log(stringify.statuses.length);
+    
+      //clean old values
       this.tweetIds = [];
       this.tweettext = [];
       this.tweetuser = [];
       this.tweethandle = [];
       this.tweetdate = [];
-       for(var i = 0; i < stringify.statuses.length; i++) {
-        // console.log(stringify.statuses[i].id);
-         this.tweetIds.push(stringify.statuses[i].id_str);
-         this.tweettext.push(stringify.statuses[i].text);
-         this.tweetuser.push(stringify.statuses[i].user.name);
-         this.tweethandle.push(stringify.statuses[i].user.screen_name);
-         this.tweetdate.push(stringify.statuses[i].created_at);
-       }
-      //  console.log(this.theIds);
-      //  for(var i = 0; i < this.theIds.length; i++) {
-      //     this.tweetIds.push(this.theIds[i]);
-      //  }
-       console.log(this.tweetIds);
-      //this.result = this.clientHello.value;
-      this.numSlurs = this.tweetIds.length.toString();
-      //this.embedded = this.idArray[0];
 
-      var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
-      var myTl = /* angular.element( */ document.querySelector( '#tweettexthold' ) /* ) */;
-      //var myLl = /* angular.element( */ document.querySelector( '#tester' ) /* ) */;
-      var myLl = /* angular.element( */ document.querySelector( '#output_text' ) /* ) */;
-     
-      myLl.innerHTML = "";
+      var stringify = JSON.parse(serverHello.value);
 
-      for(var i = 0; i < this.tweettext.length; i++){
-        let tweetelement = this.tweettext[i];
-        
-        
-        //myTl.innerHTML += "<p>"+tweetelement+"</p></br>";
-        //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-        //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-     }
+      for (var i = 0; i < stringify.statuses.length; i++) {
+        // adds string values from tweets to the
+        // appropriate component arrays
+        this.tweetIds.push(stringify.statuses[i].id_str);
+        this.tweettext.push(stringify.statuses[i].text);
+        this.tweetuser.push(stringify.statuses[i].user.name);
+        this.tweethandle.push(stringify.statuses[i].user.screen_name);
+        this.tweetdate.push(stringify.statuses[i].created_at);
+      }
 
-     for(var i = 0; i < this.tweettext.length; i++){
-      let tweetelement = this.tweettext[i];
-      
-      
-      //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweetelement+'</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
-      //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-      //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-   }
+      this.numSlurs = this.tweetIds.length.toString(); //total slurs
 
+      var myLl = document.querySelector('#output_text');
 
-     for(var i = 0; i < this.tweetIds.length; i++){
-        let tweetelement = this.tweetIds[i];
-        let tweettexts = this.tweettext[i];
-        let tweetuser = this.tweetuser[i];
-        let tweethandle = this.tweethandle[i];
-        let tweetdate = this.tweetdate[i];
-        
+      myLl.innerHTML = ""; //clean old value
 
-        myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p>&mdash; '+tweetuser+' (@'+tweethandle+') <a href="https://twitter.com/'+tweethandle+'/status/'+tweetelement+'">'+tweetdate+'</a></blockquote>';
+      if (stringify.statuses.length > 0) {
+        //starts creating embedded tweets from returned
+        //information
+        for (var i = 0; i < this.tweetIds.length; i++) {
+          let tweetelement = this.tweetIds[i];
+          let tweettexts = this.tweettext[i];
+          let tweetuser = this.tweetuser[i];
+          let tweethandle = this.tweethandle[i];
+          let tweetdate = this.tweetdate[i];
 
-        //myLl.innerHTML += '<blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">'+tweettexts+'</p><a href="https://twitter.com/realDonaldTrump/status/'+tweetelement+'">test</a></blockquote><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>';
-        //myEl.innerHTML += "<p>"+tweet"</p></br>";
-        //myEl.innerHTML += "<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>";
-        //myEl.append("<ngx-tweet tweetId="+tweetelement+"></ngx-tweet></br>");
-        
-     }
-     twttr.widgets.load();
+          myLl.innerHTML += '<blockquote class="twitter-tweet tw-align-center " data-conversation="none" data-lang="en"><p lang="en" dir="ltr">' + tweettexts + '</p>&mdash; ' + tweetuser + ' (@' + tweethandle + ') <a href="https://twitter.com/' + tweethandle + '/status/' + tweetelement + '">' + tweetdate + '</a></blockquote>';
+        }
+
+      } else {
+        //when it finds nothing, it shows a placeholder tweet
+        myLl.innerHTML = '<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">This user is a good doobie.</p>&mdash; Lil&#39; Bigot Bot (@HomophobeHunter) <a href="https://twitter.com/HomophobeHunter/status/1197706918564745216?ref_src=twsrc%5Etfw">November 22, 2019</a></blockquote>';
+      }
+      twttr.widgets.load();
     });
   }
 
-  constructor(private myTaskService: HelloService, private router: Router,) { }
+  getSlurList(): void {
+      // returns an array of slurs
+      // and displays them.
+      // uses the slur datatype
+      // class Slurs {
+      //   _id: String;
+      //    value: string;
+      //    slurs: any;
+      //  }      
+    let slursub = this.mySlurService.getslurs().subscribe((serverHello: Slurs) => {
+      this.slurshold = serverHello;
+      this.slurArrayString = this.slurshold.slurs.join(', ');
+    });
+    setTimeout(function () {
+      //then deletes itself after 4 seconds
+      //to avoid causing psychic harm to viewers
+      this.clear();
+    }.bind(this), 4000);
+  }
+  clear(): void { 
+    //clears the slurs from the page
+    this.slurArrayString = "";
+  }
+
+  constructor(private myTaskService: HelloService, private router: Router, private mySlurService: SlursService, ) { }
+  //our only component which needed multiple services
 
   ngOnInit() {
+    //initial values for clientHello hello object
+    //probably deprecated
     this.clientHello.value = "default";
     this.clientHello._id = '00000';
-    //this.loadScripts();
-    }
 
-    ngAfterViewInit(): void {
-      // @ts-ignore
-      //twttr.widgets.load();
+    //add content to slurList button
+    document.getElementById('slurlink').addEventListener("click", event => {
+      this.getSlurList();
+    });
+    document.getElementById('search_input').addEventListener("focus", event => {
+      this.input_search='';
+    });
   }
 
-  
-  ngDoCheck(): void {
-    //console.log("tzeench");
-    //twttr.widgets.load();
-    //this.loadScripts();
-  }
-  
-  ngOnChanges() {
-    
-    //console.log("tzeench");
-    
+  ngAfterViewInit(): void {
   }
 
 }

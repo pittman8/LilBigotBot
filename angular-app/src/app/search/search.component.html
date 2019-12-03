@@ -1,74 +1,21 @@
-<!-- <script>window.twttr = (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0],
-      t = window.twttr || {};
-    if (d.getElementById(id)) return t;
-    js = d.createElement(s);
-    js.id = id;
-    js.src = "https://platform.twitter.com/widgets.js";
-    fjs.parentNode.insertBefore(js, fjs);
-  
-    t._e = [];
-    t.ready = function(f) {
-      t._e.push(f);
-    };
-  
-    return t;
-  }(document, "script", "twitter-wjs"));</script> -->
-
-
-  
-
-<div class="component" id='component_search'>
-    <h2>Search an account's post history</h2>
-    <div>
-        <label class="labels">
-            @ <input [(ngModel)]="input_search">
-        </label>
+<div class="component" id='component_search'>    
+    <p>Enter a Twitter acount to search it for slurs. (<span class='underline' id='slurlink'>Which slurs?</span>)</p>
+    <div id='slur_list'>
+        <p id ='slurstrings' style="display: inline-block"> {{slurArrayString}} </p>
     </div>
 
-<button class='btn_search' id='btn_search' (click)='getHello()'>Search</button>
-<br><br>
-<div id='slur_list'>
-    <p style="display: inline-block"> {{slurArrayString}} </p>
-</div>
-<button style="display: inline-block" (click)='getSlurList()'> Words Searched </button>
+    <div id="searchBar">
+            <p>@
+                <input id="search_input" class='pretty' [(ngModel)]="input_search" (keyup.enter)="getHello()">
+                <button id='btn_search' (click)='getHello()'>
+                    <a><span>&#9906;</span></a>
+                </button>
+            </p>
+    </div>
 
-<div id="calendarBox"></div>
-<div id="tweettexthold"></div>
-<div id="tester"></div>
-
-<!-- <script>
-
-    function myCtrl($scope) {
-        $scope.AppendHtml = function() {
-         var myEl = /* angular.element( */ document.querySelector( '#calendarBox' ) /* ) */;
-         
-
-         for(var i = 0; i < tweetIds.length; i++){
-            let tweetelement = tweetIds[i];
-            myEl.append('<ngx-tweet tweetId="'+tweetelement+'"></ngx-tweet></br>');
-         }
-              
-        }
-    }
-    </script> -->
-<!-- 
-<ngx-tweet tweetId="1190079193582899200"></ngx-tweet> -->
-    <!-- <ngx-tweet *ngFor="let tweetId of tweetIds" [tweetId]="tweetId"></ngx-tweet> -->
-<!-- <twitter-widget twitter-widget-id="'1190079193582899200'"> -->
-<!-- </twitter-widget> -->
     <div id='output_search'>
         <p>Number of times this user slurred in the past week: {{numSlurs}}</p>
-        <pre>
-            <br><br>
-        </pre>
         <div id='output_text'>{{result}}</div>
     </div>
 
-     <!-- <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">....this decision, but in the nd it will be best for all concerned. As President, I will always be there to help New York and the great people of New York. It will always have a special place in my heart!</p>&mdash; Donald J. Trump (@realDonaldTrump) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">November 1, 2019</a></blockquote> -->
-
-    <!-- <blockquote class="twitter-tweet" data-conversation="none" data-lang="en"><p lang="en" dir="ltr">text content</p>&mdash; Name (@Handle) <a href="https://twitter.com/realDonaldTrump/status/1190079193582899200?ref_src=twsrc%5Etfw">Date</a></blockquote> -->
- 
-
-<!-- <script id="twitter-wjs" type="text/javascript" async defer src="//platform.twitter.com/widgets.js"></script> -->
 </div>

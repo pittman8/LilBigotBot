@@ -1,11 +1,25 @@
+.component {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 2em;
+  }
+
+  #component_resources {
+    width: 50%;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 2vw;
+  }
+  
+  .component h2 {
+    font-size: 2vw;
+  }
+
 a {
-    color: black;
+    color: white;
     font-weight: bold;
     font-style: italic;
 }
 
-h2 {
-    text-align: center;
-    // margin-left: 5%;
-    // margin-right: -50%;
-  }

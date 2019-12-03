@@ -1,10 +1,10 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import { AnalyticsService } from './analytics.service';
+import { SlursService } from './slurs.service';
 
 import { HttpClientModule }    from '@angular/common/http';
 
-describe('AnalyticsService', () => {
+describe('SlursService', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [ ],
@@ -15,7 +15,7 @@ describe('AnalyticsService', () => {
   }));
 
   it('should be created', () => {
-    const service: AnalyticsService = TestBed.get(AnalyticsService);
+    const service: SlursService = TestBed.get(SlursService);
     expect(service).toBeTruthy();
   });
 });

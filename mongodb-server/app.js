@@ -18,7 +18,6 @@ optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke
 
 // db instance connection
 require("./config/db");
-//require("./callTwitter");
 
 const port = process.env.PORT || 80;
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -33,22 +32,6 @@ app
   .get(helloController.returnFake)
   .post(helloController.returnHello);
 app
-  .route("/slurs")
-  .get(helloController.returnFake)
-  .post(helloController.returnSlurs);
-/*
-app
-  .route("/tasks")
-  .get(taskController.listAllTasks)
-  .post(taskController.createNewTask);
-
-app
-  .route("/tasks/:taskid")
-  .get(taskController.readTask)
-  .put(taskController.updateTask)
-  .delete(taskController.deleteTask);
-*/
-app
   .route("/tweets")
   .get(tweetController.listAllTweets)
   .post(tweetController.createNewTweet);
@@ -60,6 +43,9 @@ app
 app
   .route("/analytics")
   .get(AnalyticsController.returnconn)
+app
+  .route("/slurs")
+  .get(helloController.returnSlurs);
 app
   .route("/tweets/:tweetid")
   .get(tweetController.readTweet)

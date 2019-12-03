@@ -9,29 +9,42 @@ import { Stats } from '../stats';
   styleUrls: ['./analytics.component.scss']
 })
 export class AnalyticsComponent implements OnInit {
-  result = 'Output holder';
   clientHello: Stats = new Stats();
-  numSlurs = ' ';
+  result = '';
+  slurs = '';
+  numSlurs = '';
 
-  getHello(): void {
-    console.log("hi");
-    //sends value from search bar to server
-    //and displays the value it returns
+  getHello(): void { //called by onInit()
+    //appends text to display rankings
+    //this was recycled from the search component
+    //it uses the Stats type instead of Hello
+    // Stats {
+    //   _id: String;
+    //    value: string;
+    //    Connections: string;
+    //    Slurs: string;
+    //    Ranks: any;
+    //  }
+    //but is otherwise pretty similar.
+
     this.myTaskService.getstats().subscribe((serverHello: Stats) => {      
-      //this stuff is asynchronous
       this.clientHello = serverHello;
-      //console.log(serverHello);
       this.result = this.clientHello.Connections;
-      
-     
+      this.slurs = this.clientHello.Slurs;
+
+      for(var i = 0; i < this.clientHello.Ranks.length; i++) {
+          let curr = this.clientHello.Ranks[i];
+          let node = document.createElement("LI");
+          let textnode = document.createTextNode(curr._id+" was search "+curr.count+" times");
+          node.appendChild(textnode);
+          document.getElementById("rankings").appendChild(node);  
+        }           
     });
   }
 
   constructor(private myTaskService: AnalyticsService, private router: Router) { }
 
   ngOnInit() {
-    //this.clientHello.value = "default";
-    //this.clientHello._id = '00000';
     }
     ngAfterViewInit(): void {
       this.getHello();
