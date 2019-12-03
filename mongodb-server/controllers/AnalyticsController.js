@@ -1,5 +1,5 @@
 const Stat = require("../models/Stat");
-const twitt = require("./Twittercontrol");
+//const twitt = require("./Twittercontrol");
 const stats = require("./StatController");
 const tweetc = require("./TweetController");
 
@@ -11,73 +11,52 @@ exports.returnFake = (res) => {
   res.json(serverHello);
 };
 
+//Returns the number of connections, slurs, and ranked list of users searched
 exports.returnconn = (req, res) => {
-  //recieves a Hello and returns it
+  //Recieves a stat object
   let serverHello = new Stat(req.body);
   serverHello._id = '99999';
   serverHello.Connections = 1;
   serverHello.Slurs = 1;
   serverHello.Ranks = null;
-  new Promise(function(resolve, reject) {
-
+  new Promise(function (resolve, reject) {
+    //Fetch the entry in the stats collection document
     let statread = stats.readStatret();
-    
     resolve(statread);
-    //console.log(statread);
-    //console.log(serverHello.value);
-
-}).then(function(value){
-  //console.log(value.Connections);
+  }).then(function (value) {
     serverHello.Connections = value.Connections;
     serverHello.Slurs = value.Slurs;
 
-
-
-  let testobj = {
-    _id: serverHello._id,
-    Connections: serverHello.Connections,
-    Slurs: serverHello.Slurs,
-    Ranks: null
-
-  };
-
-
-    new Promise(function(resolve, reject) {
-    
+    //Create an object to be compatible with the clientside code
+    let testobj = {
+      _id: serverHello._id,
+      Connections: serverHello.Connections,
+      Slurs: serverHello.Slurs,
+      Ranks: null
+    };
+    //Fetches the list of handles called
+    new Promise(function (resolve, reject) {
       let rankread = tweetc.listAllTweets();
       resolve(rankread);
-    }).then(function(value){
-
-      //console.log(value);
+    }).then(function (value) {
       testobj.Ranks = value;
-      //serverHello.Ranks = value;
-      //console.log(serverHello.Ranks);
-      //console.log(serverHello);
+      //Sorts the list of handles so it is ranked by number of calls
       testobj.Ranks = testobj.Ranks.sort(function (a, b) {
         return (a.count > b.count) ? -1 : 1;
       });
-      //console.log(testobj.Ranks);
       res.json(testobj);
-      //res.json(serverHello);
     })
-
-
-
-  //res.json(serverHello);
-})
-  //res.json(serverHello);
+  })
 };
 
-ReadRank = () =>{
-  new Promise(function(resolve, reject) {
+ReadRank = () => {
+  new Promise(function (resolve, reject) {
     let rankread = tweetc.listAllTweets();
     resolve(rankread);
-  
-  }).then(function(value){
+
+  }).then(function (value) {
     console.log("rankread");
     console.log(value);
     return value;
   })
-  
-  
-  };
+};

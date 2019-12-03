@@ -1,5 +1,10 @@
 const Tweet = require("../models/Tweet");
 
+/*
+
+Functions for communicating with mongo to read/update the list of users searched
+*/
+
 
 // go to mongo and select network and allow any url to come in
 // go to azure and turn on app logging so can see console.log messages
@@ -12,7 +17,6 @@ exports.listAllTweets = (req, res) => {
       resolve(err);
     }
     resolve(tweet);
-    //console.log(tweet);
   });
 });
 };
@@ -24,7 +28,6 @@ exports.createNewTweet = (req, res) => {
   newTweet.save((err, tweet) => {
     if (err) {
       resolve(err);
-      //res.status(500).send(err);
     }
     resolve(tweet);
   });
