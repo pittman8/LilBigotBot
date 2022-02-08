@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'bigotbotclient'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DDE53AE7A2054FFBA0B6617A177E52B7 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_E26F4392ADD34D3CB244C14CFE11C0B2 }}
           package: .
